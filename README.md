@@ -1,2 +1,11 @@
 # metodologias-heroesdeciudad
-Trabajo Integrador de Metodologías de Programación I, implementando patrones de diseño
+Trabajo Integrador de la materia **Metodologías de Programación I**, dictada para Ingeniería en Informática en *[Universidad Nacional Arturo Jauretche][1]*.
+
+
+
+Las solicitudes del sistema se van agregando acorde a la cursada, detallados en archivos PDF (ver *[/enunciados][2]*.
+
+
+
+[1]: https://www.unaj.edu.ar
+[2]: https://github.com/n-caro/metodologias-heroesdeciudad/tree/master/enunciados
