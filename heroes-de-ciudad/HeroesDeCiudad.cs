@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Program
+    class HeroesDeCiudad
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
