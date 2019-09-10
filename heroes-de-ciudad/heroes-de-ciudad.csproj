@@ -43,10 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bombero.cs" />
+    <Compile Include="Calle.cs" />
+    <Compile Include="Casa.cs" />
     <Compile Include="Electricista.cs" />
+    <Compile Include="Esquina.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Medico.cs" />
+    <Compile Include="Plaza.cs" />
     <Compile Include="Policia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
