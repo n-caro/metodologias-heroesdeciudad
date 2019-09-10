@@ -8,12 +8,12 @@ namespace heroes_de_ciudad
 {
     class Mecanico
     {
-        void arreglarMotor()
+        public void arreglarMotor()
         {
             Console.WriteLine("¡Estoy arreglando un motor, suerte con el precio!");
         }
 
-        void remolcarAuto()
+        public void remolcarAuto()
         {
             Console.WriteLine("¡Estoy remolcando un auto!");
         }

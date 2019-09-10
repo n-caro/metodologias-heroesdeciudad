@@ -8,12 +8,12 @@ namespace heroes_de_ciudad
 {
     class Policia
     {
-        void patrullar()
+        public void patrullar()
         {
             Console.WriteLine("¡Estoy patrullando!");
         }
 
-        void detenerDelincuente()
+        public void detenerDelincuente()
         {
             Console.WriteLine("¡Estoy deteniendo un delincuente!");
         }

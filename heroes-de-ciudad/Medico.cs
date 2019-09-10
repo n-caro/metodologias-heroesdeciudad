@@ -8,12 +8,12 @@ namespace heroes_de_ciudad
 {
     class Medico
     {
-        void atenderInfarto()
+        public void atenderInfarto()
         {
             Console.WriteLine("¡Estoy atendiendo un infarto!");
         }
 
-        void atenderDesmayo()
+        public void atenderDesmayo()
         {
             Console.WriteLine("¡Estoy atendiendo un desmayo!");
         }
