@@ -10,7 +10,6 @@ namespace heroes_de_ciudad
     {
         static void Main(string[] args)
         {
-
             Console.WriteLine("     #Testing de Heroes \n ---------------------- ");
 
             Bombero bombero = new Bombero();
@@ -37,8 +36,7 @@ namespace heroes_de_ciudad
             Console.WriteLine("\n #Mecanico:");
             mecanico.arreglarMotor();
             mecanico.remolcarAuto();
-
-            Console.ReadKey();
+            // Testing de 02 - Strategy
 
         }
     }

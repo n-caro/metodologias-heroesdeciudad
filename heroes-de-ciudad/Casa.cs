@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Casa
+    class Casa: ILugar
     {
         private int puerta;
         private int superficie;
         private int habitantes;
 
-        public Casa(int puerta, int superficie, int habitantes)
-        {
-            this.puerta = puerta;
-            this.superficie = superficie;
-            this.habitantes = habitantes;
-        }
-
+        // getters-setters
         public int Puerta
         {
             get { return puerta; }
@@ -33,6 +27,31 @@ namespace heroes_de_ciudad
         {
             get { return habitantes; }
             set { habitantes = value; }
+        }
+
+        // Métodos
+        public int[,] getSectores()
+        {
+            double raizSuperficieRedondeada = Math.Round(Math.Sqrt(superficie));
+            int dimension = Convert.ToInt32(raizSuperficieRedondeada);
+            int[,] matrizAfectada = new int[dimension, dimension];
+            Random r = new Random();
+            for (int fila = 0; fila < dimension; fila++)
+            {
+                for (int columna = 0; columna < dimension; columna++)
+                {
+                    matrizAfectada[fila, columna] = r.Next(101);
+                }
+            }
+            return matrizAfectada;
+        }
+
+        // Constructores
+        public Casa(int puerta, int superficie, int habitantes)
+        {
+            this.puerta = puerta;
+            this.superficie = superficie;
+            this.habitantes = habitantes;
         }
 
     }
