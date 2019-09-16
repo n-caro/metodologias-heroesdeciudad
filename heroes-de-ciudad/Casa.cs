@@ -11,6 +11,7 @@ namespace heroes_de_ciudad
         private int puerta;
         private int superficie;
         private int habitantes;
+        private Calle calle;
 
         // getters-setters
         public int Puerta
@@ -27,6 +28,12 @@ namespace heroes_de_ciudad
         {
             get { return habitantes; }
             set { habitantes = value; }
+        }
+
+        public Calle Calle
+        {
+            get { return calle; }
+            set { calle = value; }
         }
 
         // Métodos

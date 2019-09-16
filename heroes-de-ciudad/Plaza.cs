@@ -12,6 +12,7 @@ namespace heroes_de_ciudad
         private int superficie;
         private int arboles;
         private int farolas;
+        private Calle calle;
 
         // getters-setters
         public string Nombre
@@ -33,6 +34,11 @@ namespace heroes_de_ciudad
         {
             get { return farolas; }
             set { farolas = value; }
+        }
+        public Calle Calle
+        {
+            get { return calle; }
+            set { calle = value; }
         }
 
         // Métodos 
