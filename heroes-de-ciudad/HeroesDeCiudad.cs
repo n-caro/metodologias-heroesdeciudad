@@ -11,33 +11,11 @@ namespace heroes_de_ciudad
         static void Main(string[] args)
         {
             Console.WriteLine("     #Testing de Heroes \n ---------------------- ");
+            
 
-            Bombero bombero = new Bombero();
-            Medico medico = new Medico();
-            Policia policia = new Policia();
-            Electricista electricista = new Electricista();
-            Mecanico mecanico = new Mecanico();
-
-            Console.WriteLine("\n #Bombero:");
-            bombero.apagarIncendio();
-            bombero.bajarGatitoArbol();
-
-            Console.WriteLine("\n #Medico:");
-            medico.atenderDesmayo();
-            medico.atenderInfarto();
-
-            Console.WriteLine("\n #Policia:");
-            policia.patrullar();
-            policia.detenerDelincuente();
-
-            Console.WriteLine("\n #Electricista:");
-            electricista.revisar();
-
-            Console.WriteLine("\n #Mecanico:");
-            mecanico.arreglarMotor();
-            mecanico.remolcarAuto();
-            // Testing de 02 - Strategy
-
+            // end
+            Console.WriteLine("\n \n \n No rompiste nada! Presiona una tecla para cerrar");
+            Console.ReadKey();
         }
     }
 }

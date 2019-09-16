@@ -32,8 +32,8 @@ namespace heroes_de_ciudad
         // Métodos
         public int[,] getSectores()
         {
-            double raizSuperficieRedondeada = Math.Round(Math.Sqrt(superficie));
-            int dimension = Convert.ToInt32(raizSuperficieRedondeada);
+            double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
+            int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
             int[,] matrizAfectada = new int[dimension, dimension];
             Random r = new Random();
             for (int fila = 0; fila < dimension; fila++)
@@ -43,7 +43,7 @@ namespace heroes_de_ciudad
                     matrizAfectada[fila, columna] = r.Next(101);
                 }
             }
-            return matrizAfectada;
+            return matrizAfectada; 
         }
 
         // Constructores

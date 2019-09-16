@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApagadoEscalera.cs" />
+    <Compile Include="ApagadoEspiral.cs" />
+    <Compile Include="EstrategiaDeApagado.cs" />
     <Compile Include="Bombero.cs" />
     <Compile Include="Calle.cs" />
     <Compile Include="Casa.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
+    <Compile Include="EstrategiaApagarIncendio.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="ILugar.cs" />
     <Compile Include="Mecanico.cs" />
