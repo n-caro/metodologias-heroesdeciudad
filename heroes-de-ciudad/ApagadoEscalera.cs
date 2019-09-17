@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class ApagadoEscalera : EstrategiaDeApagado
+    class ApagadoEscalera : IEstrategiaDeApagado
     {
 
         public void RecorrerLugar(ILugar lugar, Calle calle)

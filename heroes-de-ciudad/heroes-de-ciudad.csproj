@@ -50,7 +50,7 @@
     <Compile Include="Casa.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
-    <Compile Include="EstrategiaDeApagado.cs" />
+    <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="ILugar.cs" />
     <Compile Include="Mecanico.cs" />

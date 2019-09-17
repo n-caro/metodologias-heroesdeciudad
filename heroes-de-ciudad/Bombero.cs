@@ -8,10 +8,10 @@ namespace heroes_de_ciudad
 {
     class Bombero
     {
-        private EstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
+        private IEstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
 
 
-        public EstrategiaDeApagado setEstrategiaApagado
+        public IEstrategiaDeApagado setEstrategiaApagado
         {
             set
             {
