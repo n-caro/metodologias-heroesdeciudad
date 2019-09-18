@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Bombero
+    class Bombero: IAlarmaIncendioObserver
     {
         private IEstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
 
+        private Queue<ILugar> colaIncendios = new Queue<ILugar>();
+
+        // getters-setters
 
         public IEstrategiaDeApagado setEstrategiaApagado
         {
@@ -19,11 +22,14 @@ namespace heroes_de_ciudad
             }
         }
 
+        // Métodos
         public void apagarIncendio(ILugar lugar, Calle calle)
         {
-            Console.WriteLine("[Apagando Incendio!]");
+            Console.WriteLine("# BOMBERO: [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
             estrategiaApagado.RecorrerLugar(lugar, calle);
-            Console.WriteLine("¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void bajarGatitoArbol()
@@ -31,6 +37,23 @@ namespace heroes_de_ciudad
             Console.WriteLine("¡Estoy bajando al gatito del árbol!");
         }
 
-        
+        public void actualizar(ILugar lugar)
+        {
+            this.colaIncendios.Enqueue(lugar);
+        }
+
+
+        public void apagarIncendio()
+        {
+            if(colaIncendios.Count == 0)
+            {
+                Console.WriteLine("No hay incendios pendientes a tratar.");
+            }
+            else
+            {
+                ILugar lugar = colaIncendios.Dequeue();
+                apagarIncendio(lugar, lugar.getCalle());
+            }
+        }
     }
 }

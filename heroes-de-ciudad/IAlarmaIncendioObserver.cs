@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    interface ILugar: IAlarmaIncendio
+    interface IAlarmaIncendioObserver
     {
-        int[,] getSectores();
-        void chispa();
-
+        void actualizar(ILugar lugar);
     }
 }

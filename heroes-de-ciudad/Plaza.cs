@@ -13,6 +13,8 @@ namespace heroes_de_ciudad
         private int arboles;
         private int farolas;
         private Calle calle;
+        // Alarma con Patrón Observer
+        private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
 
         // getters-setters
         public string Nombre
@@ -35,10 +37,9 @@ namespace heroes_de_ciudad
             get { return farolas; }
             set { farolas = value; }
         }
-        public Calle Calle
+        public Calle getCalle()
         {
-            get { return calle; }
-            set { calle = value; }
+            return calle;
         }
 
         // Métodos 
@@ -58,13 +59,36 @@ namespace heroes_de_ciudad
             return matrizAfectada;
         }
 
+
+        // Provocar incendios - Alarma con Patron Observer
+        public void chispa()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!!");
+            Console.ForegroundColor = ConsoleColor.White;
+            this.notificar();
+        }
+
+        public void agregarObservador(IAlarmaIncendioObserver o)
+        {
+            observadoresAlarma.Add(o);
+        }
+
+        public void notificar()
+        {
+            foreach (IAlarmaIncendioObserver o in observadoresAlarma)
+            {
+                o.actualizar(this);
+            }
+        }
         // Constructores
-        public Plaza(string nombre, int superficie, int arboles, int farolas)
+        public Plaza(string nombre, int superficie, int arboles, int farolas, Calle calle)
         {
             this.nombre = nombre;
             this.superficie = superficie;
             this.arboles = arboles;
             this.farolas = farolas;
+            this.calle = calle;
         }
     }
 }

@@ -50,6 +50,8 @@
     <Compile Include="Casa.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
+    <Compile Include="IAlarmaIncendio.cs" />
+    <Compile Include="IAlarmaIncendioObserver.cs" />
     <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="ILugar.cs" />

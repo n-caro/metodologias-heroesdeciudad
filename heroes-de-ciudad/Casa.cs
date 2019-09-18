@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Casa: ILugar
+    class Casa : ILugar
     {
         private int puerta;
         private int superficie;
         private int habitantes;
         private Calle calle;
+        private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
 
         // getters-setters
         public int Puerta
@@ -30,10 +31,9 @@ namespace heroes_de_ciudad
             set { habitantes = value; }
         }
 
-        public Calle Calle
+        public Calle getCalle()
         {
-            get { return calle; }
-            set { calle = value; }
+            return calle;
         }
 
         // Métodos
@@ -50,15 +50,36 @@ namespace heroes_de_ciudad
                     matrizAfectada[fila, columna] = r.Next(101);
                 }
             }
-            return matrizAfectada; 
+            return matrizAfectada;
         }
 
+        public void chispa()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!!");
+            Console.ForegroundColor = ConsoleColor.White;
+            this.notificar();
+        }
+
+        public void agregarObservador(IAlarmaIncendioObserver o)
+        {
+            observadoresAlarma.Add(o);
+        }
+
+        public void notificar()
+        {
+            foreach(IAlarmaIncendioObserver o in observadoresAlarma)
+            {
+                o.actualizar(this);
+            }
+        }
         // Constructores
-        public Casa(int puerta, int superficie, int habitantes)
+        public Casa(int puerta, int superficie, int habitantes, Calle calle)
         {
             this.puerta = puerta;
             this.superficie = superficie;
             this.habitantes = habitantes;
+            this.calle = calle;
         }
 
     }
