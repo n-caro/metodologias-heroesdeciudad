@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Plaza : ILugar
+    class Plaza : ILugar, IPatrullable
     {
         private string nombre;
         private int superficie;
@@ -81,6 +81,16 @@ namespace heroes_de_ciudad
                 o.actualizar(this);
             }
         }
+
+        public bool hayAlgoFueraDeLoNormal()
+        {
+            double probabilidad = 0.3;
+            Random random = new Random();
+            if (random.NextDouble() > probabilidad)
+                return true;
+            return false;
+        }
+
         // Constructores
         public Plaza(string nombre, int superficie, int arboles, int farolas, Calle calle)
         {

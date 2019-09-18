@@ -33,7 +33,6 @@ namespace heroes_de_ciudad
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
             Console.ForegroundColor = ConsoleColor.White;
         }
-
         public void bajarGatitoArbol()
         {
             Console.WriteLine("¡Estoy bajando al gatito del árbol!");

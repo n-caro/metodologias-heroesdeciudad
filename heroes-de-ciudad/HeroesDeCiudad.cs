@@ -12,18 +12,42 @@ namespace heroes_de_ciudad
         {
             Console.WriteLine("     #Testing de Heroes \n ---------------------- ");
 
-            Bombero bombero = new Bombero();
-            Calle callePrincipal = new Calle(100, 10, 50);
-            Casa casa01 = new Casa(10, 4, 10, callePrincipal);
-            Casa casa02 = new Casa(10, 10, 10, callePrincipal);
-            Plaza Plaza01 = new Plaza("Ricardo", 50, 10, 10, callePrincipal);
-            // Pruebo incendios
-            casa01.agregarObservador(bombero);
-            Plaza01.agregarObservador(bombero);
-            casa01.chispa();
-            // Se incendia la plaza
-            bombero.setEstrategiaApagado = new ApagadoEspiral();
-            Plaza01.chispa();
+            Policia policiaGutierrez = new Policia();
+
+            // creo colección al azar
+            List<IPatrullable> lugaresAPatrullar = new List<IPatrullable>(15);
+            Calle calle01 = new Calle(100, 10, 50);
+            Calle calle02 = new Calle(150, 10, 80);
+            for (int i = 0; i < 15; i++)
+            {
+                if(i%2 == 0)
+                {
+                    lugaresAPatrullar.Add(new Casa(i * 2 + 1, i * 2 + 5, i * 2 + 1, calle02));
+                }
+                else
+                {
+                    lugaresAPatrullar.Add(new Plaza("Plaza Random" + i, i * 3 + 10, i + 15, i + 10, calle01));
+                }
+            }
+
+            // Patrullo los diversos lugares
+            for(int pos = 0; pos < 15; pos++)
+            {
+                if(pos == 0)
+                {
+                    policiaGutierrez.OrdenPolicia = new OPVozDeAlto();
+                }
+                if (pos == 5)
+                {
+                    policiaGutierrez.OrdenPolicia = new OPPerseguirYArrestar();
+                }
+                if (pos == 9)
+                {
+                    policiaGutierrez.OrdenPolicia = new OPAvisarYPedirRefuerzos();
+                }
+                Console.WriteLine("ITERACION " + (pos+1) + "-------------------" );
+                policiaGutierrez.patrullarCalles(lugaresAPatrullar[pos]);
+            }
 
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");

@@ -55,10 +55,13 @@
     <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="ILugar.cs" />
+    <Compile Include="IOrdenPolicia.cs" />
+    <Compile Include="IPatrullable.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Plaza.cs" />
     <Compile Include="Policia.cs" />
+    <Compile Include="PoliciaOrdenes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

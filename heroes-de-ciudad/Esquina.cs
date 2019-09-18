@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Esquina
+    class Esquina: IPatrullable
     {
         private int semaforos;
-
+        // getters - setters
         public Esquina(int semaforo)
         {
             this.semaforos = semaforo;
@@ -18,6 +18,16 @@ namespace heroes_de_ciudad
         {
             get { return semaforos; }
             set { semaforos = value; }
+        }
+
+        // Métodos
+        public bool hayAlgoFueraDeLoNormal()
+        {
+            double probabilidad = 0.4;
+            Random random = new Random();
+            if (random.NextDouble() > probabilidad)
+                return true;
+            return false;
         }
     }
 }
