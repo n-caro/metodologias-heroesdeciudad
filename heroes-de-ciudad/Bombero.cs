@@ -10,7 +10,9 @@ namespace heroes_de_ciudad
     {
         private IEstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
 
+        /* Cola de incendios
         private Queue<ILugar> colaIncendios = new Queue<ILugar>();
+        */
 
         // getters-setters
 
@@ -39,12 +41,17 @@ namespace heroes_de_ciudad
 
         public void actualizar(ILugar lugar)
         {
-            this.colaIncendios.Enqueue(lugar);
+            apagarIncendio(lugar, lugar.getCalle());
+            /* Cola de incendios
+            apagarIncendio(Lugar)
+            */
         }
 
-
-        public void apagarIncendio()
+        /* Cola de incendios
+        public void apagarIncendio(ILugar lugar)
         {
+
+ 
             if(colaIncendios.Count == 0)
             {
                 Console.WriteLine("No hay incendios pendientes a tratar.");
@@ -54,6 +61,6 @@ namespace heroes_de_ciudad
                 ILugar lugar = colaIncendios.Dequeue();
                 apagarIncendio(lugar, lugar.getCalle());
             }
-        }
+            */
     }
 }

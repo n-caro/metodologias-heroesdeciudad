@@ -21,11 +21,9 @@ namespace heroes_de_ciudad
             casa01.agregarObservador(bombero);
             Plaza01.agregarObservador(bombero);
             casa01.chispa();
-            bombero.apagarIncendio();
             // Se incendia la plaza
-            Plaza01.chispa();
             bombero.setEstrategiaApagado = new ApagadoEspiral();
-            bombero.apagarIncendio();
+            Plaza01.chispa();
 
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");
