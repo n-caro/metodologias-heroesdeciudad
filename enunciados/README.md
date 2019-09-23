@@ -13,3 +13,5 @@ Enunciados requeridos por el docente acorde a las clases.
 | 04/09/2019 | 06 - Command | 1 |
 | 11/09/2019 | 07 - Template Method | - |
 | 11/09/2019 | 08 - Adapter | - |
+| 18/09/2019 | 09 - Factory method | - |
+| 18/09/2019 | 10 - Builder | - |
