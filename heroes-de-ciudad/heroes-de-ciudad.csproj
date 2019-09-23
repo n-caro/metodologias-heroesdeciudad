@@ -56,10 +56,12 @@
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="IInfartable.cs" />
     <Compile Include="ILugar.cs" />
+    <Compile Include="InfartableAdapter.cs" />
     <Compile Include="IOrdenPolicia.cs" />
     <Compile Include="IPatrullable.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Medico.cs" />
+    <Compile Include="Passerby.cs" />
     <Compile Include="Plaza.cs" />
     <Compile Include="Policia.cs" />
     <Compile Include="PoliciaOrdenes.cs" />
