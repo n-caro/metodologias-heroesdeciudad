@@ -54,6 +54,7 @@
     <Compile Include="IAlarmaIncendioObserver.cs" />
     <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
+    <Compile Include="IInfartable.cs" />
     <Compile Include="ILugar.cs" />
     <Compile Include="IOrdenPolicia.cs" />
     <Compile Include="IPatrullable.cs" />
@@ -63,6 +64,11 @@
     <Compile Include="Policia.cs" />
     <Compile Include="PoliciaOrdenes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtocoloRCP.cs" />
+    <Compile Include="RCPTipoA.cs" />
+    <Compile Include="RCPTipoB.cs" />
+    <Compile Include="Sector.cs" />
+    <Compile Include="Transeunte.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

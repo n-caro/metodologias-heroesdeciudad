@@ -10,6 +10,7 @@ namespace heroes_de_ciudad
     {
         public void RecorrerLugar(ILugar lugar, Calle calle)
         {
+            /*
             int[,] matrizLugar = lugar.getSectores();
             int caudalAgua = calle.CaudalAgua;
 
@@ -55,24 +56,29 @@ namespace heroes_de_ciudad
                 }
             }
 
-
+             */
         }
 
-        private void ApagarSector(int fila, int columna, int[,] matrizLugar, int caudalAgua)
+        private void ApagarSector(int fila, int columna, Sector[,] matrizLugar, int caudalAgua)
         {
-            int porcentajeIncendio = matrizLugar[fila, columna];
+            double porcentajeIncendio = matrizLugar[fila, columna].PorcentajeIncendio;
+            Sector sectorProblematico = matrizLugar[fila, columna];
             StringBuilder estado_Incendio = new StringBuilder();
             if (porcentajeIncendio > caudalAgua)
             {
-                int porcentajeIncendioRestante = porcentajeIncendio - caudalAgua;
+                sectorProblematico.mojar(caudalAgua);
                 estado_Incendio.Append("-> ");
-                estado_Incendio.Append(porcentajeIncendioRestante);
-                while (porcentajeIncendioRestante > caudalAgua)
+                estado_Incendio.Append(sectorProblematico.PorcentajeIncendio);
+                while (!sectorProblematico.estaApagado())
                 {
-                    porcentajeIncendioRestante -= caudalAgua;
+                    sectorProblematico.mojar(caudalAgua);
                     estado_Incendio.Append("-> ");
-                    estado_Incendio.Append(porcentajeIncendioRestante);
+                    estado_Incendio.Append(sectorProblematico.PorcentajeIncendio);
                 }
+            }
+            else
+            {
+                sectorProblematico.mojar(caudalAgua);
             }
             Console.WriteLine("     ({0},{1}) -> {2} {3}-> 0", fila, columna, porcentajeIncendio, estado_Incendio);
         }

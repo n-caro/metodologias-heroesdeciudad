@@ -40,26 +40,9 @@ namespace heroes_de_ciudad
 
         public void actualizar(ILugar lugar)
         {
+            Console.WriteLine("# BOMBERO: He recibido un aviso de Alarma de Incendio! Socorriendo Lugar a continuación ");
             apagarIncendio(lugar, lugar.getCalle());
-            /* Cola de incendios
-            apagarIncendio(Lugar)
-            */
         }
 
-        /* Cola de incendios
-        public void apagarIncendio(ILugar lugar)
-        {
-
- 
-            if(colaIncendios.Count == 0)
-            {
-                Console.WriteLine("No hay incendios pendientes a tratar.");
-            }
-            else
-            {
-                ILugar lugar = colaIncendios.Dequeue();
-                apagarIncendio(lugar, lugar.getCalle());
-            }
-            */
     }
 }

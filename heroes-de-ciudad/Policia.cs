@@ -8,7 +8,7 @@ namespace heroes_de_ciudad
 {
     class Policia
     {
-        IOrdenPolicia ordenPolicia = null;
+        IOrdenPolicia ordenPolicia = new OPVozDeAlto();
 
         // Métodos
         public void patrullarCalles(IPatrullable lugarAPatrullar)

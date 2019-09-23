@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    interface ILugar: IAlarmaIncendio
+    interface IInfartable
     {
-        Sector[,] getSectores();
-        void chispa();
-
+        bool estasConsciente();
+        bool estasRespirando();
+        bool tenesRitmoCardiaco();
     }
 }
