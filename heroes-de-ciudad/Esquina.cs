@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Esquina: IPatrullable
+    class Esquina: IPatrullable, IIluminable
     {
         private int semaforos;
         // getters - setters
@@ -29,5 +29,11 @@ namespace heroes_de_ciudad
                 return true;
             return false;
         }
+
+        public void revisarYCambiarLamparasQuemadas()
+        {
+            Console.WriteLine("Cambiando las lámparas quemadas de la esquina.");
+        }
+
     }
 }
