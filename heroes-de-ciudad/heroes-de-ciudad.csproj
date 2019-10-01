@@ -54,8 +54,10 @@
     <Compile Include="IAlarmaIncendioObserver.cs" />
     <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
+    <Compile Include="IIluminable.cs" />
     <Compile Include="IInfartable.cs" />
     <Compile Include="ILugar.cs" />
+    <Compile Include="IluminableCompuesto.cs" />
     <Compile Include="InfartableAdapter.cs" />
     <Compile Include="IOrdenPolicia.cs" />
     <Compile Include="IPatrullable.cs" />

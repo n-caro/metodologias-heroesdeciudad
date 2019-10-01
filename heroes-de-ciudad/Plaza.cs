@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Plaza : ILugar, IPatrullable
+    class Plaza : ILugar, IPatrullable, IIluminable
     {
         private string nombre;
         private int superficie;
@@ -91,6 +91,11 @@ namespace heroes_de_ciudad
             if (random.NextDouble() > probabilidad)
                 return true;
             return false;
+        }
+
+        public void revisarYCambiarLamparasQuemadas()
+        {
+            Console.WriteLine("Cambiando las lámparas quemadas de la plaza.");
         }
 
         // Constructores

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Calle
+    class Calle: IIluminable
     {
         private int longitud;
         private int farolas;
@@ -33,6 +33,11 @@ namespace heroes_de_ciudad
         {
             get { return caudalAgua; }
             set { caudalAgua = value; }
+        }
+        // Métodos
+        public void revisarYCambiarLamparasQuemadas()
+        {
+            Console.WriteLine("Cambiando las lámparas quemadas de la calle.");
         }
     }
 }
