@@ -37,29 +37,13 @@ namespace heroes_de_ciudad
         }
 
         // Métodos
-        /*
-        public int[,] getSectores()
+
+        // Matriz de ISectores
+        public ISector[,] getSectores()
         {
             double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            int[,] matrizAfectada = new int[dimension, dimension];
-            Random r = new Random();
-            for (int fila = 0; fila < dimension; fila++)
-            {
-                for (int columna = 0; columna < dimension; columna++)
-                {
-                    matrizAfectada[fila, columna] = r.Next(101);
-                }
-            }
-            return matrizAfectada;
-        }
-        ----------------*/
-        // Matriz pero de sectores
-        public Sector[,] getSectores()
-        {
-            double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
-            int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            Sector[,] matrizAfectada = new Sector[dimension, dimension];
+            ISector[,] matrizAfectada = new Sector[dimension, dimension];
             Random r = new Random();
             for (int fila = 0; fila < dimension; fila++)
             {
@@ -67,7 +51,7 @@ namespace heroes_de_ciudad
                 {
                     double porcentajeRandom = r.Next(101);
                     matrizAfectada[fila, columna] = new Sector(porcentajeRandom);
-                    Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].PorcentajeIncendio);
+                    //Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].getPorcentajeIncendio());
                 }
             }
             return matrizAfectada;

@@ -43,24 +43,82 @@ namespace heroes_de_ciudad
         }
 
         // Métodos 
-        public Sector[,] getSectores()
+        public ISector[,] getSectores()
         {
             double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            Sector[,] matrizAfectada = new Sector[dimension, dimension];
+            ISector[,] matrizAfectada = new ISector[dimension, dimension];
             Random r = new Random();
+            // Establezco variables en común, para decorar
+            int caudalLluvia = r.Next(0, 500);
+            int temperatura = r.Next(0, 45);
+            int velocidadViento = r.Next(0, 250);
+            Console.WriteLine("     < Estado del día: {0} caudal de lluvia - {1}° temperatura - {2} velocidad de viento >", caudalLluvia, temperatura, velocidadViento);
+            //
             for (int fila = 0; fila < dimension; fila++)
             {
                 for (int columna = 0; columna < dimension; columna++)
                 {
-                    double porcentajeRandom = r.Next(101);
-                    matrizAfectada[fila, columna] = new Sector(porcentajeRandom);
-                    Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].PorcentajeIncendio);
+                    matrizAfectada[fila, columna] = this.crearSector(caudalLluvia, temperatura, velocidadViento);
+                    //Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].getPorcentajeIncendio());
                 }
             }
             return matrizAfectada;
         }
 
+        // Creador de Sectores
+        private ISector crearSector(int caudalLluvia, int temperatura, int velocidadViento)
+        {
+            Random random = new Random();
+            int porcentajeRandom = random.Next(100);
+            Sector sector = new Sector(porcentajeRandom);
+            return decorarSector(sector, caudalLluvia, temperatura, velocidadViento);
+        }
+
+        private ISector decorarSector(ISector sector, int caudalLluvia, int temperatura, int velocidadViento)
+        {
+            Random random = new Random();
+            double probabilidad_de_decorar = 0.2;
+            if (random.NextDouble() < probabilidad_de_decorar)
+            {
+                sector = new DecoratorPastoSeco(sector);
+            }
+            if (random.NextDouble() < probabilidad_de_decorar)
+            {
+                sector = new DecoratorArbolesGrandes(sector);
+            }
+            if (random.NextDouble() < probabilidad_de_decorar)
+            {
+                sector = new DecoratorGenteAsustada(sector, random.Next(0, 5));
+            }
+            if (temperatura > 30)
+            {
+                if(temperatura > 45)
+                {
+                    sector = new DecoratorMuchoCalor(sector, 45);
+                }
+                else
+                {
+                    sector = new DecoratorMuchoCalor(sector, temperatura);
+                }
+            }
+            if (velocidadViento > 80)
+            {
+                if (velocidadViento > 250)
+                {
+                    sector = new DecoratorMuchoViento(sector, 250);
+                }
+                else
+                {
+                    sector = new DecoratorMuchoViento(sector, temperatura);
+                }
+            }
+            if (caudalLluvia > 0)
+            {
+                sector = new DecoratorDiaLluvioso(sector, caudalLluvia);
+            }
+            return sector;
+        }
 
         // Provocar incendios - Alarma con Patron Observer
         public void chispa()

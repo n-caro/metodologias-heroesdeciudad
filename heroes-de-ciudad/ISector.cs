@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    interface ILugar: IAlarmaIncendio
+    interface ISector
     {
-        ISector[,] getSectores();
-        void chispa();
+        void mojar(double agua);
+        bool estaApagado();
 
+        double getPorcentajeIncendio();
     }
 }

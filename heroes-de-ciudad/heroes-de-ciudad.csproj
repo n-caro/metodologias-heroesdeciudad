@@ -48,6 +48,13 @@
     <Compile Include="Bombero.cs" />
     <Compile Include="Calle.cs" />
     <Compile Include="Casa.cs" />
+    <Compile Include="DecoratorArbolesGrandes.cs" />
+    <Compile Include="DecoratorDiaLluvioso.cs" />
+    <Compile Include="DecoratorGenteAsustada.cs" />
+    <Compile Include="DecoratorMuchoCalor.cs" />
+    <Compile Include="DecoratorMuchoViento.cs" />
+    <Compile Include="DecoratorPastoSeco.cs" />
+    <Compile Include="DecoratorSector.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
     <Compile Include="IAlarmaIncendio.cs" />
@@ -61,6 +68,7 @@
     <Compile Include="InfartableAdapter.cs" />
     <Compile Include="IOrdenPolicia.cs" />
     <Compile Include="IPatrullable.cs" />
+    <Compile Include="ISector.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Passerby.cs" />

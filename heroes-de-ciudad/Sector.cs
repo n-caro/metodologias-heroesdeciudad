@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Sector
+    class Sector: ISector
     {
         private double porcentajeIncendio;
 
-        // getters-setter
-        public double PorcentajeIncendio
-        {
-            get { return porcentajeIncendio; }
-        }
 
         // Métodos 
         public void mojar(double agua)
         {
-            if(agua >= porcentajeIncendio)
+            agua = Math.Round(agua, 2);
+            if (agua >= porcentajeIncendio)
             {
                 porcentajeIncendio = 0;
             }
@@ -35,6 +31,11 @@ namespace heroes_de_ciudad
                 return true;
             return false;
 
+        }
+
+        public double getPorcentajeIncendio()
+        {
+            return Math.Round(porcentajeIncendio, 2);
         }
 
         // Constructores
