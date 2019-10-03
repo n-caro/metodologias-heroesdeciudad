@@ -16,4 +16,6 @@ Enunciados requeridos por el docente acorde a las clases.
 | 18/09/2019 | 09 - Factory method | - |
 | 18/09/2019 | 10 - Builder | - |
 | 25/09/2019 | 11 - Iterator | - |
-| 25/09/2019 | 12 - Chain of resopnsability | - |
+| 25/09/2019 | 12 - Chain of responsability | - |
+| 02/10/2019 | 13 - Abstract factory | - |
+| 02/10/2019 | 14 - Singleton | - |
