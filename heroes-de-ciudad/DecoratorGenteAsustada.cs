@@ -21,9 +21,10 @@ namespace heroes_de_ciudad
             base.mojar(caudalAModificar);
         }
         // constructor
-        public DecoratorGenteAsustada(ISector componente, int genteAsustada) : base(componente)
+        public DecoratorGenteAsustada(ISector componente) : base(componente)
         {
-            this.genteAsustada = genteAsustada;
+            Random r = new Random();
+            this.genteAsustada = r.Next(0,5);
         }
     }
 }

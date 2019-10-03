@@ -14,9 +14,10 @@ namespace heroes_de_ciudad
             base.mojar(agua + intesidadLluvia);
         }
         // constructor
-        public DecoratorDiaLluvioso(ISector componente, int intesidadLluvia) : base(componente)
+        public DecoratorDiaLluvioso(ISector componente) : base(componente)
         {
-            this.intesidadLluvia = intesidadLluvia;
+            Random r = new Random();
+            this.intesidadLluvia = r.Next(1,500);
         }
     }
 }

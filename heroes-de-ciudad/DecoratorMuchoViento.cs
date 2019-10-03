@@ -15,9 +15,10 @@ namespace heroes_de_ciudad
             base.mojar(agua - resultado);
         }
         // constructor
-        public DecoratorMuchoViento(ISector componente, int velocidadViento) : base(componente)
+        public DecoratorMuchoViento(ISector componente) : base(componente)
         {
-            this.velocidadViento = velocidadViento;
+            Random r = new Random();
+            this.velocidadViento = r.Next(80,250);
         }
     }
 }
