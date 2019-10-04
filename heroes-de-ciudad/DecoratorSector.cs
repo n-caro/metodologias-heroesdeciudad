@@ -9,6 +9,7 @@ namespace heroes_de_ciudad
     abstract class DecoratorSector: ISector
     {
         protected ISector componente;
+        protected Random random = new Random();
 
         public bool estaApagado()
         {

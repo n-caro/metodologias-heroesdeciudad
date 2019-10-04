@@ -57,6 +57,13 @@
     <Compile Include="DecoratorSector.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
+    <Compile Include="FabricaDecoradoArbolesGrandes.cs" />
+    <Compile Include="FabricaDecoradoDiaLluvioso.cs" />
+    <Compile Include="FabricaDecoradoGenteAsustada.cs" />
+    <Compile Include="FabricaDecoradoMuchoCalor.cs" />
+    <Compile Include="FabricaDecoradoMuchoViento.cs" />
+    <Compile Include="FabricaDecoradoPastoSeco.cs" />
+    <Compile Include="FabricaDeDecoradosSector.cs" />
     <Compile Include="IAlarmaIncendio.cs" />
     <Compile Include="IAlarmaIncendioObserver.cs" />
     <Compile Include="IEstrategiaDeApagado.cs" />

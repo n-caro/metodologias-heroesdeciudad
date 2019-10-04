@@ -50,8 +50,8 @@ namespace heroes_de_ciudad
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
             ISector[,] matrizAfectada = new ISector[dimension, dimension];
             // Establezco variables en común, para decorar
-            int caudalLluvia = random.Next(0, 500);
-            int temperatura = random.Next(0, 45);
+            int caudalLluvia = random.Next(0, 15);
+            int temperatura = random.Next(-5, 45);
             int velocidadViento = random.Next(0, 250);
             Console.WriteLine("     < Estado del día: {0} caudal de lluvia - {1}° temperatura - {2} velocidad de viento >", caudalLluvia, temperatura, velocidadViento);
             //
@@ -80,17 +80,17 @@ namespace heroes_de_ciudad
             //Random random = new Random();
             double probabilidad_de_decorar = 0.2;
             if (random.NextDouble() < probabilidad_de_decorar)
-                sector = new DecoratorPastoSeco(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.PastoSeco);
             if (random.NextDouble() < probabilidad_de_decorar)
-                sector = new DecoratorArbolesGrandes(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.ArbolesGrandes);
             if (random.NextDouble() < probabilidad_de_decorar)
-                sector = new DecoratorGenteAsustada(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.GenteAsustada);
             if (temperatura > 30)
-                sector = new DecoratorMuchoCalor(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.MuchoCalor);
             if (velocidadViento > 80)
-                sector = new DecoratorMuchoViento(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.MuchoViento);
             if (caudalLluvia > 0)
-                sector = new DecoratorDiaLluvioso(sector);
+                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.DiaLLuvioso);
             return sector;
         }
 
@@ -110,9 +110,12 @@ namespace heroes_de_ciudad
 
         public void notificar()
         {
-            foreach (IAlarmaIncendioObserver o in observadoresAlarma)
+            if(observadoresAlarma.Count > 0)
             {
-                o.actualizar(this);
+                foreach (IAlarmaIncendioObserver o in observadoresAlarma)
+                {
+                    o.actualizar(this);
+                }
             }
         }
 

@@ -11,13 +11,13 @@ namespace heroes_de_ciudad
         private int intesidadLluvia;
         public override void mojar(double agua)
         {
+            //int intesidadLluvia = random.Next(1, 500);
             base.mojar(agua + intesidadLluvia);
         }
         // constructor
         public DecoratorDiaLluvioso(ISector componente) : base(componente)
         {
-            Random r = new Random();
-            this.intesidadLluvia = r.Next(1,500);
+            this.intesidadLluvia = random.Next(1,500);
         }
     }
 }

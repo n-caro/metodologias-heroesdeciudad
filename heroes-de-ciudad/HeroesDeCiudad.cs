@@ -14,9 +14,9 @@ namespace heroes_de_ciudad
 
             Bombero bombero = new Bombero();
             Calle calle = new Calle(100, 10, 10);
-            bombero.setEstrategiaApagado = new ApagadoEspiral();
+            //bombero.setEstrategiaApagado = new ApagadoEspiral();
 
-            Plaza plazaPrincipal = new Plaza("Plaza Principal", 9, 10, 10, calle);
+            Plaza plazaPrincipal = new Plaza("Plaza Principal", 16, 10, 10, calle);
 
             bombero.apagarIncendio(plazaPrincipal, plazaPrincipal.getCalle());
             // end
