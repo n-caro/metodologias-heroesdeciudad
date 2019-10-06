@@ -46,6 +46,7 @@
     <Compile Include="ApagadoEspiral.cs" />
     <Compile Include="ApagadoSecuencial.cs" />
     <Compile Include="Bombero.cs" />
+    <Compile Include="BomberoSecretario.cs" />
     <Compile Include="Calle.cs" />
     <Compile Include="Casa.cs" />
     <Compile Include="DecoratorArbolesGrandes.cs" />
@@ -55,6 +56,10 @@
     <Compile Include="DecoratorMuchoViento.cs" />
     <Compile Include="DecoratorPastoSeco.cs" />
     <Compile Include="DecoratorSector.cs" />
+    <Compile Include="DenunciaDeIncendio.cs" />
+    <Compile Include="DenunciasPorMostrador.cs" />
+    <Compile Include="DenunciasPorTablero.cs" />
+    <Compile Include="DenunciasPorWhatsapp.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
     <Compile Include="FabricaDecoradoArbolesGrandes.cs" />
@@ -66,6 +71,8 @@
     <Compile Include="FabricaDeDecoradosSector.cs" />
     <Compile Include="IAlarmaIncendio.cs" />
     <Compile Include="IAlarmaIncendioObserver.cs" />
+    <Compile Include="IDenuncia.cs" />
+    <Compile Include="IDenuncias.cs" />
     <Compile Include="IEstrategiaDeApagado.cs" />
     <Compile Include="HeroesDeCiudad.cs" />
     <Compile Include="IIluminable.cs" />
@@ -75,9 +82,15 @@
     <Compile Include="InfartableAdapter.cs" />
     <Compile Include="IOrdenPolicia.cs" />
     <Compile Include="IPatrullable.cs" />
+    <Compile Include="IResponsable.cs" />
     <Compile Include="ISector.cs" />
+    <Compile Include="IteradorDeDenucias.cs" />
+    <Compile Include="IteradorDenunciasDeTablero.cs" />
+    <Compile Include="IteradorDenunciasDeWhatsapp.cs" />
+    <Compile Include="IteradorDenunciasDeMostrador.cs" />
     <Compile Include="Mecanico.cs" />
     <Compile Include="Medico.cs" />
+    <Compile Include="MensajeWhatsapp.cs" />
     <Compile Include="Passerby.cs" />
     <Compile Include="Plaza.cs" />
     <Compile Include="Policia.cs" />

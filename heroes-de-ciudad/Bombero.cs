@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Bombero: IAlarmaIncendioObserver
+    class Bombero: IAlarmaIncendioObserver, IResponsable
     {
         private IEstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
-
-        /* Cola de incendios
-        private Queue<ILugar> colaIncendios = new Queue<ILugar>();
-        */
 
         // getters-setters
 
@@ -33,6 +29,12 @@ namespace heroes_de_ciudad
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public void apagarIncendio(ILugar lugar)
+        {
+            this.apagarIncendio(lugar, lugar.getCalle());
+        }
+
         public void bajarGatitoArbol()
         {
             Console.WriteLine("¡Estoy bajando al gatito del árbol!");
