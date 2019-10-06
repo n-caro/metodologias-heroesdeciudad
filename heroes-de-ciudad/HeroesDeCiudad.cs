@@ -25,10 +25,11 @@ namespace heroes_de_ciudad
             Casa D = new Casa(1, 9, 10, calleSecundaria);
             Casa E = new Casa(1, 16, 10, calleSecundaria);
             Casa F = new Casa(1, 40, 10, calleSecundaria);
-            Casa G = new Casa(1, 10, 10, callePrincipal);
+            Plaza G = new Plaza("Plaza Principal", 25, 10, 10, callePrincipal);
             Casa H = new Casa(1, 4, 10, calleSecundaria);
             Casa I = new Casa(1, 30, 10, callePrincipal);
             Casa J = new Casa(1, 25, 10, calleSecundaria);
+
 
             // Instancie una DenunciasPorTablero y hágala observadora de los lugares A, B, C, D, E y F. 
             DenunciasPorTablero denunciasPorTablero = new DenunciasPorTablero();
@@ -72,8 +73,6 @@ namespace heroes_de_ciudad
             Console.WriteLine("ATENDIENDO DENUNCIAS POR Mostrador (tiene que ser 1)");
             Console.ForegroundColor = ConsoleColor.White;
             bomberoSecretario.atenderDenuncias(denunciasPorMostrador);
-
-
 
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");

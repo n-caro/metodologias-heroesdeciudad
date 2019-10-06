@@ -24,7 +24,7 @@ namespace heroes_de_ciudad
                 Console.WriteLine("Atendiendo denuncia numero: " + contador);
                 IDenuncia denuncia = iterador.actual();
                 ILugar denunciaLugar = denuncia.getLugar();
-                bombero.apagarIncendio(denunciaLugar);
+                denuncia.atender(bombero);
                 iterador.siguiente();
                 contador++;
             }

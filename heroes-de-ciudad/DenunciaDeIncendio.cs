@@ -12,7 +12,7 @@ namespace heroes_de_ciudad
 
         public void atender(IResponsable bombero)
         {
-            Console.WriteLine("Se supone que el bombero atiende");
+            bombero.atenderDenuncia(this);
         }
 
         //setters-getters

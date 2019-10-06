@@ -46,5 +46,12 @@ namespace heroes_de_ciudad
             apagarIncendio(lugar, lugar.getCalle());
         }
 
+        // De IResponsable
+        public void atenderDenuncia(IDenuncia denuncia)
+        {
+            Console.WriteLine("<Voy a atender una denuncia de incendio>");
+            apagarIncendio(denuncia.getLugar());
+        }
+
     }
 }

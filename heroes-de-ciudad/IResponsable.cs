@@ -8,5 +8,6 @@ namespace heroes_de_ciudad
 {
     interface IResponsable
     {
+        void atenderDenuncia(IDenuncia denuncia);
     }
 }
