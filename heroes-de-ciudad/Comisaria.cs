@@ -8,6 +8,7 @@ namespace heroes_de_ciudad
 {
     class Comisaria: ICuartel
     {
+        private static Comisaria unicaComisaria = null;
         private List<IVehiculo> vehiculos = new List<IVehiculo>();
         private List<IResponsable> personal = new List<IResponsable>();
         private List<IHerramienta> herramientas = new List<IHerramienta>();
@@ -36,5 +37,15 @@ namespace heroes_de_ciudad
             return responsable;
 
         }
+
+        // start: 15 - Singleton
+        public static Comisaria getInstance()
+        {
+            if (unicaComisaria == null)
+                unicaComisaria = new Comisaria();
+            return unicaComisaria;
+        }
+        private Comisaria() { }
+        // end: 15 - Singleton 
     }
 }

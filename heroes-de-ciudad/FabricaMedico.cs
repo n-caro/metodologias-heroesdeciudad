@@ -10,7 +10,7 @@ namespace heroes_de_ciudad
     {
         public ICuartel crearCuartel()
         {
-            return new Hospital();
+            return Hospital.getInstance();
         }
 
         public IResponsable crearHeroe()

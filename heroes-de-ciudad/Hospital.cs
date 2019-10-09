@@ -8,6 +8,7 @@ namespace heroes_de_ciudad
 {
     class Hospital: ICuartel
     {
+        private static Hospital unicoHospital = null;
         private List<IVehiculo> vehiculos = new List<IVehiculo>();
         private List<IResponsable> personal = new List<IResponsable>();
         private List<IHerramienta> herramientas = new List<IHerramienta>();
@@ -36,5 +37,15 @@ namespace heroes_de_ciudad
             return responsable;
 
         }
+
+        // start: 15 - Singleton
+        public static Hospital getInstance()
+        {
+            if (unicoHospital == null)
+                unicoHospital = new Hospital();
+            return unicoHospital;
+        }
+        private Hospital() { }
+        // end: 15 - Singleton 
     }
 }

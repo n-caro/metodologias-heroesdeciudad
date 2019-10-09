@@ -8,6 +8,7 @@ namespace heroes_de_ciudad
 {
     class CentralElectrica: ICuartel
     {
+        private static CentralElectrica unicaCentralElectrica = null;
         private List<IVehiculo> vehiculos = new List<IVehiculo>();
         private List<IResponsable> personal = new List<IResponsable>();
         private List<IHerramienta> herramientas = new List<IHerramienta>();
@@ -36,5 +37,14 @@ namespace heroes_de_ciudad
             return responsable;
 
         }
+        // start: 15 - Singleton
+        public static CentralElectrica getInstance()
+        {
+            if (unicaCentralElectrica == null)
+                unicaCentralElectrica = new CentralElectrica();
+            return unicaCentralElectrica;
+        }
+        private CentralElectrica() { }
+        // end: 15 - Singleton 
     }
 }

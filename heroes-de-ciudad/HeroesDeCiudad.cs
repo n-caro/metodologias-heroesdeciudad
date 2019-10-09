@@ -123,6 +123,12 @@ namespace heroes_de_ciudad
             Policia p2 = (Policia)crearHeroe(new FabricaPolicia()).getPersonal();
             p2.patrullarCalles(new Casa(10, 10, 10, new Calle(10, 10, 50)));
 
+            CuartelDeBomberos cb = CuartelDeBomberos.getInstance();
+            IResponsable b1 = cb.getPersonal();
+            IResponsable b2 = cb.getPersonal();
+            IResponsable b3 = cb.getPersonal();
+            IResponsable b4 = cb.getPersonal();
+
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");
             Console.ReadKey();

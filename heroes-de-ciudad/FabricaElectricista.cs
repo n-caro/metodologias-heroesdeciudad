@@ -10,7 +10,7 @@ namespace heroes_de_ciudad
     {
         public ICuartel crearCuartel()
         {
-            return new CentralElectrica();
+            return CentralElectrica.getInstance();
         }
 
         public IResponsable crearHeroe()
