@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class BomberoSecretario
+    class Operador911
     {
-        private Bombero bombero;
-        // Constructor
-        public BomberoSecretario(Bombero bombero)
+        IResponsable responsable;
+
+        void atenderDenuncias(IDenuncias denuncias)
         {
-            this.bombero = bombero;
-        }
-        // Método
-        public void atenderDenuncias(IDenuncias denuncias)
-        {
+            Console.WriteLine("Operador 911 está atendiendo las denuncias");
+            // Método 
             IteradorDeDenucias iterador = denuncias.crearIterador();
             while (iterador.fin() != true)
             {
                 IDenuncia denuncia = iterador.actual();
-                denuncia.atender(bombero);
+                denuncia.atender(responsable);
                 iterador.siguiente();
             }
+        }
+
+        // Constructor
+        public Operador911(IResponsable responsable)
+        {
+            this.responsable = responsable;
         }
     }
 }

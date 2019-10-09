@@ -8,6 +8,11 @@ namespace heroes_de_ciudad
 {
     interface IResponsable
     {
-        void atenderDenuncia(IDenuncia denuncia);
+
+        // setters y getter de herramientas
+        IHerramienta getHerramienta();
+        IVehiculo getVehiculo();
+        void setHerramienta(IHerramienta h);
+        void setVehiculo(IVehiculo v);
     }
 }

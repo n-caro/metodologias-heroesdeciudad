@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    interface IDenuncia
+    interface IVehiculo
     {
-        //ILugar getLugar();
-        void atender(IResponsable unResponsable);
+        void encenderSirena();
+        void conducir();
+
     }
 }

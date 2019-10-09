@@ -8,12 +8,34 @@ namespace heroes_de_ciudad
 {
     class HeroesDeCiudad
     {
+
+        static ICuartel crearHeroe(IFabricaDeHeroes fabrica)
+        {
+            ICuartel cuartel = fabrica.crearCuartel();
+            IResponsable heroe = fabrica.crearHeroe();
+            cuartel.agregarPersonal(heroe);
+            IVehiculo vehiculo = fabrica.crearVehiculo();
+            cuartel.agregarVehiculo(vehiculo);
+            IHerramienta herramienta = fabrica.crearHerramienta();
+            cuartel.agregarHerramienta(herramienta);
+            return cuartel;
+            
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("HEROES DE CIUDAD");
             Console.WriteLine("<testing>");
-            Bombero bomberoRicardo = new Bombero();
-            BomberoSecretario bomberoSecretario = new BomberoSecretario(bomberoRicardo);
+            /*
+            Bombero bombero = new Bombero();
+            BomberoSecretario bomberoSecretario = new BomberoSecretario(bombero);
+
+            // 12- Chain
+            Medico medico = new Medico(new RCPTipoA());
+            Policia policia = new Policia(new OPVozDeAlto());
+            Electricista electricista = new Electricista();
+
+            
+            // armar cadena?
 
             // 10 ILugar
             Calle callePrincipal = new Calle(10, 10, 50); // 50 de agua
@@ -42,9 +64,25 @@ namespace heroes_de_ciudad
 
             //Instancie una DenunciasPorWhatsapp y agréguele los lugares G, H e I
             MensajeWhatsapp mensajeswpp = null;
+            // 3 denuncias de incendio
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeIncendio(G), mensajeswpp);
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeIncendio(H), mensajeswpp);
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeIncendio(I), mensajeswpp);
+            // agregando denuncias 12 - chain
+            // 2 denuncias de infarto
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeInfarto(new Transeunte(90, 90, 90)), mensajeswpp);
+            InfartableAdapter passerby = new InfartableAdapter(new Passerby(1, 1, 1));
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeInfarto(passerby), mensajeswpp);
+            // 3 denuncias de robo
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeRobo(A), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeRobo(C), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeRobo(D), mensajeswpp);
+            // 5 denuncias lamparas quemadas
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeLamparaQuemada(G), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeLamparaQuemada(new Esquina(10)), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeLamparaQuemada(new Esquina(2)), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeLamparaQuemada(calleSecundaria), mensajeswpp);
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeLamparaQuemada(callePrincipal), mensajeswpp);
             DenunciasPorWhatsapp denunciasPorWhatsapp = new DenunciasPorWhatsapp(mensajeswpp);
 
             // Instancie una DenunciasPorMostrador con el lugar J
@@ -54,25 +92,36 @@ namespace heroes_de_ciudad
             B.chispa();
             F.chispa();
 
-            // Bombero
+            // PROBADNO FUNCIONAMIENTO
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("ATENDIENDO DENUNCIAS POR TABLERO (tiene que ser 2) --> FUNCIONA!");
+            Console.WriteLine("ATENDIENDO DENUNCIAS POR WHATSAPP!");
             Console.ForegroundColor = ConsoleColor.White;
-            bomberoSecretario.atenderDenuncias(denunciasPorTablero);
+            
+            */
 
-            Console.WriteLine("\n \n \n ---------------------------------------------------------");
+            Console.WriteLine("<13 - ABSTRACT FACTORY");
+            Console.WriteLine("BOMBERO:");
+            ICuartel cuartelDeBomberos = crearHeroe(new FabricaBombero());
+            Bombero b = (Bombero)cuartelDeBomberos.getPersonal();
+            b.apagarIncendio(new Casa(10, 10, 10, new Calle(10, 10, 50)));
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("ATENDIENDO DENUNCIAS POR WHASTAPP (tiene que ser 3) --> FUNCIONA!");
-            Console.ForegroundColor = ConsoleColor.White;
-            bomberoSecretario.atenderDenuncias(denunciasPorWhatsapp);
+            Console.WriteLine("MEDICO:");
+            ICuartel hospital = crearHeroe(new FabricaMedico());
+            Medico m = (Medico)hospital.getPersonal();
+            m.atenderInfarto(new Transeunte(0.9, 0.9, 0.9));
 
-            Console.WriteLine("\n \n \n ---------------------------------------------------------");
+            Console.WriteLine("ELECTRICISTA:");
+            ICuartel centralElectrica = crearHeroe(new FabricaElectricista());
+            Electricista e = (Electricista)centralElectrica.getPersonal();
+            e.revisar(new Esquina(10));
 
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("ATENDIENDO DENUNCIAS POR Mostrador (tiene que ser 1)");
-            Console.ForegroundColor = ConsoleColor.White;
-            bomberoSecretario.atenderDenuncias(denunciasPorMostrador);
+            Console.WriteLine("POLICIA:");
+            ICuartel comisaria = crearHeroe(new FabricaPolicia());
+            Policia p = (Policia)comisaria.getPersonal();
+            p.patrullarCalles(new Casa(10, 10, 10, new Calle(10, 10, 50)));
+
+            Policia p2 = (Policia)crearHeroe(new FabricaPolicia()).getPersonal();
+            p2.patrullarCalles(new Casa(10, 10, 10, new Calle(10, 10, 50)));
 
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");
