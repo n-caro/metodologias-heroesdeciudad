@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Policia: IResponsable
+    class Policia: Responsable, IResponsable
     {
-        IOrdenPolicia ordenPolicia = null;
+        IOrdenPolicia ordenPolicia = new OPVozDeAlto();
         private IHerramienta herramienta;
         private IVehiculo vehiculo;
 
@@ -19,20 +19,20 @@ namespace heroes_de_ciudad
         public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
 
         // Métodos
-        public void patrullarCalles(IPatrullable lugarAPatrullar)
+        override public void patrullarCalles(IPatrullable lugarAPatrullar)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("[POLICIA] ¡Estoy patrullando! [Lugar: {0} ]", lugarAPatrullar);
-            vehiculo.encenderSirena();
-            vehiculo.conducir();
+            //vehiculo.encenderSirena();
+            //vehiculo.conducir();
             if (lugarAPatrullar.hayAlgoFueraDeLoNormal())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("    HAY UNA AMENAZA PARA LA SEGURIDAD!");
                 Console.ForegroundColor = ConsoleColor.Blue;
-                herramienta.usar();
+                //herramienta.usar();
                 ordenPolicia.Ejecutar();
-                herramienta.guardar();
+                //herramienta.guardar();
             }
             else
             {
@@ -51,14 +51,15 @@ namespace heroes_de_ciudad
             this.ordenPolicia = ordenPolicia;
         }
 
-        // Constructor
-        public Policia(IOrdenPolicia ordenPolicia)
+        // Chain of Responsability
+        public Policia(IResponsable r) : base(r)
         {
-            this.ordenPolicia = ordenPolicia;
+
         }
-        public Policia()
+        public Policia() : base(null)
         {
-            this.ordenPolicia = new OPVozDeAlto() ;
+
         }
+        // end Chain of responsability
     }
 }

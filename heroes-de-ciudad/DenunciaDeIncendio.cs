@@ -10,9 +10,8 @@ namespace heroes_de_ciudad
     {
         ILugar lugar;
 
-        public void atender(IResponsable unResponsable) { 
-            Bombero b = (Bombero)unResponsable;
-            b.apagarIncendio(lugar);
+        public void atender(IResponsable bombero) {
+            bombero.apagarIncendio(lugar);
         }
 
         //setters-getters

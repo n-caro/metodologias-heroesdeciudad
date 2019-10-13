@@ -25,16 +25,19 @@ namespace heroes_de_ciudad
         {
             Console.WriteLine("HEROES DE CIUDAD");
             Console.WriteLine("<testing>");
-            /*
-            Bombero bombero = new Bombero();
-            BomberoSecretario bomberoSecretario = new BomberoSecretario(bombero);
 
-            // 12- Chain
-            Medico medico = new Medico(new RCPTipoA());
-            Policia policia = new Policia(new OPVozDeAlto());
-            Electricista electricista = new Electricista();
+            // heroes
+            // creo Cadena
+            IResponsable cadena = new Bombero(null);
+            cadena = new Medico(cadena);
+            cadena = new Policia(cadena);
+            cadena = new Electricista(cadena);
 
-            
+            Operador911 op = new Operador911(cadena);
+
+
+
+
             // armar cadena?
 
             // 10 ILugar
@@ -70,8 +73,8 @@ namespace heroes_de_ciudad
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeIncendio(I), mensajeswpp);
             // agregando denuncias 12 - chain
             // 2 denuncias de infarto
-            mensajeswpp = new MensajeWhatsapp(new DenunciaDeInfarto(new Transeunte(90, 90, 90)), mensajeswpp);
-            InfartableAdapter passerby = new InfartableAdapter(new Passerby(1, 1, 1));
+            mensajeswpp = new MensajeWhatsapp(new DenunciaDeInfarto(new Transeunte(0.7, 0.7, 0.7)), mensajeswpp);
+            InfartableAdapter passerby = new InfartableAdapter(new Passerby(0.7, 0.7, 0.7));
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeInfarto(passerby), mensajeswpp);
             // 3 denuncias de robo
             mensajeswpp = new MensajeWhatsapp(new DenunciaDeRobo(A), mensajeswpp);
@@ -96,9 +99,9 @@ namespace heroes_de_ciudad
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("ATENDIENDO DENUNCIAS POR WHATSAPP!");
             Console.ForegroundColor = ConsoleColor.White;
-            
-            */
 
+            op.atenderDenuncias(denunciasPorWhatsapp);
+            /*
             Console.WriteLine("<13 - ABSTRACT FACTORY");
             Console.WriteLine("BOMBERO:");
             ICuartel cuartelDeBomberos = crearHeroe(new FabricaBombero());
@@ -128,7 +131,7 @@ namespace heroes_de_ciudad
             IResponsable b2 = cb.getPersonal();
             IResponsable b3 = cb.getPersonal();
             IResponsable b4 = cb.getPersonal();
-
+            */
             // end
             Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");
             Console.ReadKey();

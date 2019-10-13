@@ -123,6 +123,7 @@
     <Compile Include="ProtocoloRCP.cs" />
     <Compile Include="RCPTipoA.cs" />
     <Compile Include="RCPTipoB.cs" />
+    <Compile Include="Responsable.cs" />
     <Compile Include="Sector.cs" />
     <Compile Include="Transeunte.cs" />
   </ItemGroup>

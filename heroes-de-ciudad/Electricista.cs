@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Electricista: IResponsable
+    class Electricista: Responsable, IResponsable
     {
         private IHerramienta herramienta;
         private IVehiculo vehiculo;
@@ -18,14 +18,14 @@ namespace heroes_de_ciudad
         public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
         // Métodos
 
-        public void revisar(IIluminable iluminable)
+        override public void revisar(IIluminable iluminable)
         {
-            vehiculo.encenderSirena();
-            vehiculo.conducir();
-            herramienta.usar();
+            //vehiculo.encenderSirena();
+            //vehiculo.conducir();
+            //herramienta.usar();
             Console.WriteLine("¡Estoy revisando un desperfecto eléctrico!");
             this.cambiarLamparasQuemadas(iluminable);
-            herramienta.guardar();
+            //herramienta.guardar();
         }
 
         public void cambiarLamparasQuemadas(IIluminable lugar)
@@ -33,6 +33,16 @@ namespace heroes_de_ciudad
             lugar.revisarYCambiarLamparasQuemadas();
         }
 
+        // Chain of Responsability
+        public Electricista(IResponsable r) : base(r)
+        {
+
+        }
+        public Electricista() : base(null)
+        {
+
+        }
+        // end Chain of responsability
 
     }
 }

@@ -10,7 +10,7 @@ namespace heroes_de_ciudad
     {
         IResponsable responsable;
 
-        void atenderDenuncias(IDenuncias denuncias)
+        public void atenderDenuncias(IDenuncias denuncias)
         {
             Console.WriteLine("Operador 911 está atendiendo las denuncias");
             // Método 
@@ -22,11 +22,10 @@ namespace heroes_de_ciudad
                 iterador.siguiente();
             }
         }
-
-        // Constructor
-        public Operador911(IResponsable responsable)
+        public Operador911(IResponsable r)
         {
-            this.responsable = responsable;
+            responsable = r;
         }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Bombero: IAlarmaIncendioObserver, IResponsable
+    class Bombero: Responsable, IAlarmaIncendioObserver, IResponsable
     {
         private IEstrategiaDeApagado estrategiaApagado = new ApagadoSecuencial();
         private IHerramienta herramienta;
@@ -27,17 +27,17 @@ namespace heroes_de_ciudad
         }
 
         // Métodos
-        public void apagarIncendio(ILugar lugar)
+        override public void apagarIncendio(ILugar lugar)
         {
-            vehiculo.encenderSirena();
-            vehiculo.conducir();
-            herramienta.usar();
+            //vehiculo.encenderSirena();
+            //vehiculo.conducir();
+            //herramienta.usar();
             Console.WriteLine("# BOMBERO: [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
             estrategiaApagado.RecorrerLugar(lugar, lugar.getCalle());
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
             Console.ForegroundColor = ConsoleColor.White;
-            herramienta.guardar();
+            //herramienta.guardar();
         }
 
         /*public void apagarIncendio(ILugar lugar)
@@ -56,5 +56,15 @@ namespace heroes_de_ciudad
             apagarIncendio(lugar);
         }
 
+        // Chain of Responsability
+        public Bombero(IResponsable r): base(r)
+        {
+
+        }
+        public Bombero() : base(null)
+        {
+
+        }
+        // end Chain of responsability
     }
 }

@@ -12,8 +12,7 @@ namespace heroes_de_ciudad
 
         public void atender(IResponsable medico)
         {
-            Medico m = (Medico)medico;
-            m.atenderInfarto(paciente);
+            medico.atenderInfarto(paciente);
 
         }
 

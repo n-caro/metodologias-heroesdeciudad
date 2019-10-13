@@ -14,5 +14,11 @@ namespace heroes_de_ciudad
         IVehiculo getVehiculo();
         void setHerramienta(IHerramienta h);
         void setVehiculo(IVehiculo v);
+
+        // Chain of responsability
+        void apagarIncendio(ILugar lugar);
+        void atenderInfarto(IInfartable paciente);
+        void patrullarCalles(IPatrullable lugarAPatrullar);
+        void revisar(IIluminable iluminable);
     }
 }

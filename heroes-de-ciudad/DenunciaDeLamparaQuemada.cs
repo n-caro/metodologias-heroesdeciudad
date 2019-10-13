@@ -12,9 +12,7 @@ namespace heroes_de_ciudad
 
         public void atender(IResponsable electricista)
         {
-            Electricista e = (Electricista)electricista;
-            e.cambiarLamparasQuemadas(iluminable);
-
+            electricista.revisar(iluminable);
         }
 
         public IIluminable getIluminable()

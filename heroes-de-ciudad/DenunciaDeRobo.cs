@@ -12,9 +12,7 @@ namespace heroes_de_ciudad
 
         public void atender(IResponsable policia)
         {
-            Policia p = (Policia)policia;
-            p.patrullarCalles(patrullable);
-
+            policia.patrullarCalles(patrullable);
         }
 
         public IPatrullable getPatrullable()
