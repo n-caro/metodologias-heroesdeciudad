@@ -35,7 +35,6 @@ namespace heroes_de_ciudad
             responsable.setVehiculo(vehiculos[0]);
 
             return responsable;
-
         }
         // start: 15 - Singleton
         public static CentralElectrica getInstance()

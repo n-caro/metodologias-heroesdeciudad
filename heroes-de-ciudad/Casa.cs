@@ -87,6 +87,10 @@ namespace heroes_de_ciudad
             return false;
         }
 
+        public override string ToString()
+        {
+            return "Casa (puerta n° " + puerta + ")";
+        }
         // Constructores
         public Casa(int puerta, int superficie, int habitantes, Calle calle)
         {

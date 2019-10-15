@@ -48,6 +48,7 @@
     <Compile Include="ApagadoSecuencial.cs" />
     <Compile Include="Autobomba.cs" />
     <Compile Include="Bombero.cs" />
+    <Compile Include="BomberoProxy.cs" />
     <Compile Include="BomberoSecretario.cs" />
     <Compile Include="Buscapolo.cs" />
     <Compile Include="Calle.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="RCPTipoB.cs" />
     <Compile Include="Responsable.cs" />
     <Compile Include="Sector.cs" />
+    <Compile Include="TestingHeroesDeCiudad.cs" />
     <Compile Include="Transeunte.cs" />
   </ItemGroup>
   <ItemGroup>

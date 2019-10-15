@@ -33,7 +33,9 @@ namespace heroes_de_ciudad
             if (sucesor != null)
                 sucesor.revisar(iluminable);
         }
-        // end
+
+        // setter-getter generales de herramientas y vehículos
+        // Constructor
         public Responsable(IResponsable r)
         {
             sucesor = r;

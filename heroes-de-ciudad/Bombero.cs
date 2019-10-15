@@ -13,31 +13,39 @@ namespace heroes_de_ciudad
         private IVehiculo vehiculo;
 
         // getters-setters
-        public IHerramienta getHerramienta() {return herramienta; }
+        public IHerramienta getHerramienta()
+        {
+            /* getHerramienta le quita la herramienta al Heroe. Se utiliza para devolverlas a sus cuarteles.
+            IHerramienta aux = herramienta;
+            herramienta = null;
+            return aux;
+            */
+            return herramienta;
+        }
         public void setHerramienta(IHerramienta herramienta) { this.herramienta = herramienta; }
         public IVehiculo getVehiculo() { return vehiculo; }
         public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
 
-        public IEstrategiaDeApagado setEstrategiaApagado
+        public void setEstrategiaApagado(IEstrategiaDeApagado estrategiaApagado)
         {
-            set
-            {
-                estrategiaApagado = value;
-            }
+            this.estrategiaApagado = estrategiaApagado;
         }
 
         // Métodos
         override public void apagarIncendio(ILugar lugar)
         {
-            //vehiculo.encenderSirena();
-            //vehiculo.conducir();
-            //herramienta.usar();
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("     [BOMBERO]       ");
+            Console.ResetColor();
+            vehiculo.encenderSirena();
+            vehiculo.conducir();
+            herramienta.usar();
             Console.WriteLine("# BOMBERO: [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
             estrategiaApagado.RecorrerLugar(lugar, lugar.getCalle());
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
             Console.ForegroundColor = ConsoleColor.White;
-            //herramienta.guardar();
+            herramienta.guardar();
         }
 
         /*public void apagarIncendio(ILugar lugar)

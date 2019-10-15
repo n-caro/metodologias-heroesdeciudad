@@ -21,6 +21,9 @@ namespace heroes_de_ciudad
         // Métodos
         override public void patrullarCalles(IPatrullable lugarAPatrullar)
         {
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("     [POLICIA]       ");
+            Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("[POLICIA] ¡Estoy patrullando! [Lugar: {0} ]", lugarAPatrullar);
             //vehiculo.encenderSirena();

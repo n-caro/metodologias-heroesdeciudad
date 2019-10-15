@@ -23,12 +23,13 @@ namespace heroes_de_ciudad
         }
         static void Main(string[] args)
         {
+            TestingHeroesDeCiudad.tituloDecorado();
             Console.WriteLine("HEROES DE CIUDAD");
             Console.WriteLine("<testing>");
 
             // heroes
             // creo Cadena
-            IResponsable cadena = new Bombero(null);
+            IResponsable cadena = new BomberoProxy(null); // proxy
             cadena = new Medico(cadena);
             cadena = new Policia(cadena);
             cadena = new Electricista(cadena);
@@ -101,6 +102,7 @@ namespace heroes_de_ciudad
             Console.ForegroundColor = ConsoleColor.White;
 
             op.atenderDenuncias(denunciasPorWhatsapp);
+            
             /*
             Console.WriteLine("<13 - ABSTRACT FACTORY");
             Console.WriteLine("BOMBERO:");

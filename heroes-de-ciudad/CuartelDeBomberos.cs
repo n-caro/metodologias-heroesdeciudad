@@ -6,36 +6,39 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
+    /// <summary>
+    /// 
+    /// Utiliza Stacks como LISTA de integrantes, para hacer más eficiente el método getPersonal.
+    /// </summary>
     class CuartelDeBomberos : ICuartel
     {
         private static CuartelDeBomberos unicoCuartelDeBomberos = null;
-        private List<IVehiculo> vehiculos = new List<IVehiculo>();
-        private List<IResponsable> personal = new List<IResponsable>();
-        private List<IHerramienta> herramientas = new List<IHerramienta>();
+        private Stack<IVehiculo> vehiculos = new Stack<IVehiculo>();
+        private Stack<IResponsable> personal = new Stack<IResponsable>();
+        private Stack<IHerramienta> herramientas = new Stack<IHerramienta>();
 
         public void agregarHerramienta(IHerramienta h)
         {
-            herramientas.Add(h);
+            herramientas.Push(h);
         }
 
         public void agregarPersonal(IResponsable r)
         {
-            personal.Add(r);
+            personal.Push(r);
         }
 
         public void agregarVehiculo(IVehiculo v)
         {
-            vehiculos.Add(v);
+            vehiculos.Push(v);
         }
 
         public IResponsable getPersonal()
-        {
-            IResponsable responsable = personal[0]; 
-            responsable.setHerramienta(herramientas[0]);
-            responsable.setVehiculo(vehiculos[0]);
-
+        { 
+            // Suerte si las pilas están vacías! 
+            IResponsable responsable = personal.Pop();
+            responsable.setVehiculo(vehiculos.Pop());
+            responsable.setHerramienta(herramientas.Pop());
             return responsable;
-
         }
 
         // start: 15 - Singleton
