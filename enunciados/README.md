@@ -19,5 +19,5 @@ Enunciados requeridos por el docente acorde a las clases.
 | 25/09/2019 | 12 - Chain of responsability | **1** |
 | 02/10/2019 | 13 - Abstract factory | **1** |
 | 02/10/2019 | 14 - Singleton | **1** |
-| 09/10/2019 | 15 - Proxy | - |
+| 09/10/2019 | 15 - Proxy | **¿1?** |
 | 09/10/2019 | 16 - State | - |
