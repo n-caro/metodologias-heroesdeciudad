@@ -56,6 +56,11 @@
     <Compile Include="Casa.cs" />
     <Compile Include="CentralElectrica.cs" />
     <Compile Include="Comisaria.cs" />
+    <Compile Include="ConstructorDesfavorable.cs" />
+    <Compile Include="ConstructorEscenarioIncendio.cs" />
+    <Compile Include="ConstructorFavorable.cs" />
+    <Compile Include="ConstructorMixto.cs" />
+    <Compile Include="ConstructorSimple.cs" />
     <Compile Include="CuartelDeBomberos.cs" />
     <Compile Include="DecoratorArbolesGrandes.cs" />
     <Compile Include="DecoratorDiaLluvioso.cs" />
@@ -72,6 +77,7 @@
     <Compile Include="DenunciasPorTablero.cs" />
     <Compile Include="DenunciasPorWhatsapp.cs" />
     <Compile Include="Desfibrilador.cs" />
+    <Compile Include="DirectorDeSectores.cs" />
     <Compile Include="Electricista.cs" />
     <Compile Include="Esquina.cs" />
     <Compile Include="FabricaBombero.cs" />

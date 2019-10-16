@@ -60,7 +60,6 @@ namespace heroes_de_ciudad
                 for (int columna = 0; columna < dimension; columna++)
                 {
                     matrizAfectada[fila, columna] = crearSector(caudalLluvia, temperatura, velocidadViento);
-                    //Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].getPorcentajeIncendio());
                 }
             }
             return matrizAfectada;
