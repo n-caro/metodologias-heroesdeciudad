@@ -12,6 +12,12 @@ namespace heroes_de_ciudad
 
         private Random random = new Random();
 
+        // setConstructor
+        public void setConstructor(ConstructorEscenarioIncendio constructor)
+        {
+            this.constructor = constructor;
+        }
+
         // Constructor
         public DirectorDeSectores(ConstructorEscenarioIncendio c)
         {

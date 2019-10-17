@@ -8,8 +8,8 @@ namespace heroes_de_ciudad
 {
     abstract class ConstructorEscenarioIncendio
     {
-        private ISector sector;
-        Random random = new Random();
+        protected ISector sector;
+        public Random random = new Random();
 
         public void crearSector()
         {

@@ -16,6 +16,9 @@ namespace heroes_de_ciudad
         private Random random = new Random();
         // Alarma con Patrón Observer
         private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
+        // 10 - Builder
+        private DirectorDeSectores directorDeSectores;
+
 
         // getters-setters
         public string Nombre
@@ -48,49 +51,7 @@ namespace heroes_de_ciudad
         {
             double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            ISector[,] matrizAfectada = new ISector[dimension, dimension];
-            // Establezco variables en común, para decorar
-            int caudalLluvia = random.Next(0, 15);
-            int temperatura = random.Next(-5, 45);
-            int velocidadViento = random.Next(0, 250);
-            Console.WriteLine("     < Estado del día: {0} caudal de lluvia - {1}° temperatura - {2} velocidad de viento >", caudalLluvia, temperatura, velocidadViento);
-            //
-            for (int fila = 0; fila < dimension; fila++)
-            {
-                for (int columna = 0; columna < dimension; columna++)
-                {
-                    matrizAfectada[fila, columna] = crearSector(caudalLluvia, temperatura, velocidadViento);
-                }
-            }
-            return matrizAfectada;
-        }
-
-        // Creador de Sectores
-        private ISector crearSector(int caudalLluvia, int temperatura, int velocidadViento)
-        {
-            //Random random = new Random();
-            int porcentajeRandom = random.Next(100);
-            Sector sector = new Sector(porcentajeRandom);
-            return decorarSector(sector, caudalLluvia, temperatura, velocidadViento);
-        }
-
-        private ISector decorarSector(ISector sector, int caudalLluvia, int temperatura, int velocidadViento)
-        {
-            //Random random = new Random();
-            double probabilidad_de_decorar = 0.2;
-            if (random.NextDouble() < probabilidad_de_decorar)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.PastoSeco);
-            if (random.NextDouble() < probabilidad_de_decorar)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.ArbolesGrandes);
-            if (random.NextDouble() < probabilidad_de_decorar)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.GenteAsustada);
-            if (temperatura > 30)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.MuchoCalor);
-            if (velocidadViento > 80)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.MuchoViento);
-            if (caudalLluvia > 0)
-                sector = FabricaDeDecoradosSector.decorarSector(sector, FabricaDeDecoradosSector.DiaLLuvioso);
-            return sector;
+            return directorDeSectores.construirMatriz(dimension, dimension);
         }
 
         // Provocar incendios - Alarma con Patron Observer
@@ -133,13 +94,14 @@ namespace heroes_de_ciudad
         }
 
         // Constructores
-        public Plaza(string nombre, int superficie, int arboles, int farolas, Calle calle)
+        public Plaza(string nombre, int superficie, int arboles, int farolas, Calle calle, DirectorDeSectores directorDeSectores)
         {
             this.nombre = nombre;
             this.superficie = superficie;
             this.arboles = arboles;
             this.farolas = farolas;
             this.calle = calle;
+            this.directorDeSectores = directorDeSectores;
         }
     }
 }

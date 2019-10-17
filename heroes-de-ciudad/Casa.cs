@@ -13,6 +13,8 @@ namespace heroes_de_ciudad
         private int habitantes;
         private Calle calle;
         private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
+        // 10 - Builder
+        private DirectorDeSectores directorDeSectores;
 
         // getters-setters
         public int Puerta
@@ -43,18 +45,7 @@ namespace heroes_de_ciudad
         {
             double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            ISector[,] matrizAfectada = new Sector[dimension, dimension];
-            Random r = new Random();
-            for (int fila = 0; fila < dimension; fila++)
-            {
-                for (int columna = 0; columna < dimension; columna++)
-                {
-                    double porcentajeRandom = r.Next(101);
-                    matrizAfectada[fila, columna] = new Sector(porcentajeRandom);
-                    //Console.WriteLine("Creado: ({0},{1}) - Sector porcentaje: {2}", fila, columna, matrizAfectada[fila, columna].getPorcentajeIncendio());
-                }
-            }
-            return matrizAfectada;
+            return directorDeSectores.construirMatriz(dimension, dimension);
         }
 
         public void chispa()
@@ -92,12 +83,13 @@ namespace heroes_de_ciudad
             return "Casa (puerta n° " + puerta + ")";
         }
         // Constructores
-        public Casa(int puerta, int superficie, int habitantes, Calle calle)
+        public Casa(int puerta, int superficie, int habitantes, Calle calle, DirectorDeSectores directorDeSectores)
         {
             this.puerta = puerta;
             this.superficie = superficie;
             this.habitantes = habitantes;
             this.calle = calle;
+            this.directorDeSectores = directorDeSectores;
         }
 
     }

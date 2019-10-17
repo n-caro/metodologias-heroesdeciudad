@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
+    /// <summary>
+    /// ConstructorSimple:
+    /// No decora sectores
+    /// </summary>
     class ConstructorSimple : ConstructorEscenarioIncendio
     {
         public override void decorarSector(int caudalLluvia, int temperatura, int velocidadViento)
         {
-            sector =
+            // el escenario simple no decora
         }
     }
 }

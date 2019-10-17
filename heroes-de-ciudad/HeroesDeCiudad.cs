@@ -42,19 +42,21 @@ namespace heroes_de_ciudad
             // armar cadena?
 
             // 10 ILugar
+            DirectorDeSectores directorFavorable = new DirectorDeSectores(new ConstructorDesfavorable());
+
             Calle callePrincipal = new Calle(10, 10, 50); // 50 de agua
             Calle calleSecundaria = new Calle(10, 10, 20); // 20 de agua
 
-            Casa A = new Casa(1, 4, 10, callePrincipal);
-            Casa B = new Casa(1, 16, 10, callePrincipal);
-            Casa C = new Casa(1, 9, 10, calleSecundaria);
-            Casa D = new Casa(1, 9, 10, calleSecundaria);
-            Casa E = new Casa(1, 16, 10, calleSecundaria);
-            Casa F = new Casa(1, 40, 10, calleSecundaria);
-            Plaza G = new Plaza("Plaza Principal", 25, 10, 10, callePrincipal);
-            Casa H = new Casa(1, 4, 10, calleSecundaria);
-            Casa I = new Casa(1, 30, 10, callePrincipal);
-            Casa J = new Casa(1, 25, 10, calleSecundaria);
+            Casa A = new Casa(1, 4, 10, callePrincipal, directorFavorable);
+            Casa B = new Casa(1, 16, 10, callePrincipal, directorFavorable);
+            Casa C = new Casa(1, 9, 10, calleSecundaria, directorFavorable);
+            Casa D = new Casa(1, 9, 10, calleSecundaria, directorFavorable);
+            Casa E = new Casa(1, 16, 10, calleSecundaria, directorFavorable);
+            Casa F = new Casa(1, 40, 10, calleSecundaria, directorFavorable);
+            Plaza G = new Plaza("Plaza Principal", 25, 10, 10, callePrincipal, directorFavorable);
+            Casa H = new Casa(1, 4, 10, calleSecundaria, directorFavorable);
+            Casa I = new Casa(1, 30, 10, callePrincipal, directorFavorable);
+            Casa J = new Casa(1, 25, 10, calleSecundaria, directorFavorable);
 
 
             // Instancie una DenunciasPorTablero y hágala observadora de los lugares A, B, C, D, E y F. 
