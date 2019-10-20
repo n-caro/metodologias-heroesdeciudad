@@ -32,7 +32,7 @@ namespace heroes_de_ciudad
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.Write(" [ELECTRICISTA] ");
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.Write(" [MECANICO] \n");
+            Console.Write(" [MECANICO (off)] \n");
             Console.ResetColor();
 
         }
