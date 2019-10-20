@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class BomberoProxy: Responsable, IResponsable
+    class PoliciaProxy : Responsable, IResponsable
     {
-        IFabricaDeHeroes fabrica = new FabricaBombero();
+        IFabricaDeHeroes fabrica = new FabricaPolicia();
         IResponsable heroeReal = null;
 
-        override public void apagarIncendio(ILugar lugar)
+        public override void patrullarCalles(IPatrullable lugarAPatrullar)
         {
             if (heroeReal == null)
             {
-                heroeReal = fabrica.crearHeroe(); // casteo para poder setear estrategia (propia de un bombero)
+                heroeReal = fabrica.crearHeroe(); // casteo para poder setear orden (propia de un bombero)
                 heroeReal.setHerramienta(fabrica.crearHerramienta());
                 heroeReal.setVehiculo(fabrica.crearVehiculo());
 
-                // seteo la estrategia de apagado, pero antes creo un aux de tipo Bombero para poder setear apagado
-                Bombero aux = (Bombero)heroeReal;
-                Console.WriteLine("[BOMBERO] Elegir estrategia de apagado (ingresar número):");
-                Console.WriteLine("     1. Apagado Secuencial");
-                Console.WriteLine("     2. Apagado Escalera");
-                Console.WriteLine("     3. Apagado Espiral");
+                // seteo la estrategia de orden, pero antes creo un aux de tipo propio de heroe para poder setear apagado
+                Policia aux = (Policia)heroeReal;
+                Console.WriteLine("[POLICIA] Elegir orden de policía (ingresar número):");
+                Console.WriteLine("     1. Voz de Alto");
+                Console.WriteLine("     2. Perseguir y arrestar");
+                Console.WriteLine("     3. Avisar y pedir refuerzos");
                 bool opcionvalida = false;
                 while (!opcionvalida)
                 {
@@ -32,15 +32,15 @@ namespace heroes_de_ciudad
                     switch (op)
                     {
                         case '1':
-                            aux.setEstrategiaApagado(new ApagadoSecuencial());
+                            aux.setOrdenPolicia(new OPVozDeAlto());
                             opcionvalida = true;
                             break;
                         case '2':
-                            aux.setEstrategiaApagado(new ApagadoEscalera());
+                            aux.setOrdenPolicia(new OPPerseguirYArrestar());
                             opcionvalida = true;
                             break;
                         case '3':
-                            aux.setEstrategiaApagado(new ApagadoEspiral());
+                            aux.setOrdenPolicia(new OPAvisarYPedirRefuerzos());
                             opcionvalida = true;
                             break;
                         default:
@@ -49,19 +49,19 @@ namespace heroes_de_ciudad
                     }
                 }
             }
-            heroeReal.apagarIncendio(lugar);
+            heroeReal.patrullarCalles(lugarAPatrullar);
             // devuelvo el bombero creado al cuartel
             fabrica.crearCuartel().agregarPersonal(heroeReal);
             fabrica.crearCuartel().agregarVehiculo(heroeReal.getVehiculo());
             fabrica.crearCuartel().agregarHerramienta(heroeReal.getHerramienta());
         }
-        
+
         // Chain of Responsability
-        public BomberoProxy(IResponsable r) : base(r)
+        public PoliciaProxy(IResponsable r) : base(r)
         {
 
         }
-        public BomberoProxy() : base(null)
+        public PoliciaProxy() : base(null)
         {
 
         }

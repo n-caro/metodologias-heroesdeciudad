@@ -9,15 +9,7 @@ namespace heroes_de_ciudad
     class Medico: Responsable, IResponsable
     {
         ProtocoloRCP protocoloRCP = new RCPTipoA();
-        private IHerramienta herramienta;
-        private IVehiculo vehiculo;
-
-        // getters-setters
-        public IHerramienta getHerramienta() { return herramienta; }
-        public void setHerramienta(IHerramienta herramienta) { this.herramienta = herramienta; }
-        public IVehiculo getVehiculo() { return vehiculo; }
-        public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
-
+       
         public void setProtocoloRCP(ProtocoloRCP protocolo)
         {
             protocoloRCP = protocolo;

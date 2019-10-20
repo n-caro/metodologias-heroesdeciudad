@@ -9,6 +9,7 @@ namespace heroes_de_ciudad
     class Esquina: IPatrullable, IIluminable
     {
         private int semaforos;
+        Random random = new Random();
         // getters - setters
         public Esquina(int semaforo)
         {
@@ -23,8 +24,7 @@ namespace heroes_de_ciudad
         // Métodos
         public bool hayAlgoFueraDeLoNormal()
         {
-            double probabilidad = 0.4;
-            Random random = new Random();
+            double probabilidad = 0.5;
             if (random.NextDouble() > probabilidad)
                 return true;
             return false;

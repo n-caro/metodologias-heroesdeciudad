@@ -9,14 +9,12 @@ namespace heroes_de_ciudad
     class Policia: Responsable, IResponsable
     {
         IOrdenPolicia ordenPolicia = new OPVozDeAlto();
-        private IHerramienta herramienta;
-        private IVehiculo vehiculo;
 
         // getters-setters
-        public IHerramienta getHerramienta() { return herramienta; }
-        public void setHerramienta(IHerramienta herramienta) { this.herramienta = herramienta; }
-        public IVehiculo getVehiculo() { return vehiculo; }
-        public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
+        public void setOrdenPolicia(IOrdenPolicia ordenPolicia)
+        {
+            this.ordenPolicia = ordenPolicia;
+        }
 
         // Métodos
         override public void patrullarCalles(IPatrullable lugarAPatrullar)
@@ -47,11 +45,6 @@ namespace heroes_de_ciudad
         public void detenerDelincuente()
         {
             Console.WriteLine("¡Estoy deteniendo un delincuente!");
-        }
-
-        public void setOrdenPolicia(IOrdenPolicia ordenPolicia)
-        {
-            this.ordenPolicia = ordenPolicia;
         }
 
         // Chain of Responsability

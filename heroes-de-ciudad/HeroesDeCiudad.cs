@@ -31,7 +31,7 @@ namespace heroes_de_ciudad
             // creo Cadena
             IResponsable cadena = new BomberoProxy(null); // proxy
             cadena = new Medico(cadena);
-            cadena = new Policia(cadena);
+            cadena = new PoliciaProxy(cadena);
             cadena = new Electricista(cadena);
 
             Operador911 op = new Operador911(cadena);

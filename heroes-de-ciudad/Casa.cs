@@ -13,6 +13,7 @@ namespace heroes_de_ciudad
         private int habitantes;
         private Calle calle;
         private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
+        Random random = new Random();
         // 10 - Builder
         private DirectorDeSectores directorDeSectores;
 
@@ -71,8 +72,7 @@ namespace heroes_de_ciudad
 
         public bool hayAlgoFueraDeLoNormal()
         {
-            double probabilidad = 0.8;
-            Random random = new Random();
+            double probabilidad = 0.4;
             if (random.NextDouble() > probabilidad)
                 return true;
             return false;
