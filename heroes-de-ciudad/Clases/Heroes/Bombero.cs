@@ -26,12 +26,13 @@ namespace heroes_de_ciudad
             vehiculo.encenderSirena();
             vehiculo.conducir();
             herramienta.usar();
-            Console.WriteLine("# BOMBERO: [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
+            Console.WriteLine("# [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
             estrategiaApagado.RecorrerLugar(lugar, lugar.getCalle());
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
             herramienta.guardar();
+            Console.WriteLine("_______________________________________________ \n ");
         }
 
         public void bajarGatitoArbol()

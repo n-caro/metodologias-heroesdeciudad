@@ -24,22 +24,24 @@ namespace heroes_de_ciudad
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("[POLICIA] ¡Estoy patrullando! [Lugar: {0} ]", lugarAPatrullar);
-            //vehiculo.encenderSirena();
-            //vehiculo.conducir();
+            vehiculo.encenderSirena();
+            vehiculo.conducir();
             if (lugarAPatrullar.hayAlgoFueraDeLoNormal())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("    HAY UNA AMENAZA PARA LA SEGURIDAD!");
                 Console.ForegroundColor = ConsoleColor.Blue;
-                //herramienta.usar();
+                herramienta.usar();
                 ordenPolicia.Ejecutar();
-                //herramienta.guardar();
+                Console.ResetColor();
+                herramienta.guardar();
             }
             else
             {
                 Console.WriteLine("No hay nada fuera de lo normal");
             }
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
+            Console.WriteLine("_______________________________________________ \n ");
         }
 
         public void detenerDelincuente()

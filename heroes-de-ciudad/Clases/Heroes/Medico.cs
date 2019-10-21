@@ -18,24 +18,30 @@ namespace heroes_de_ciudad
         // Métodos
         override public void atenderInfarto(IInfartable paciente)
         {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("     [MEDICO]       ");
+            Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("# MEDICO: [¡Se me ha solicitado atender un infarto!] ");
-            //vehiculo.encenderSirena();
-            //vehiculo.conducir();
-            //herramienta.usar();
-            Console.ForegroundColor = ConsoleColor.White;
-
+            Console.WriteLine("# [¡Se me ha solicitado atender un infarto!] ");
+            Console.ResetColor();
+            vehiculo.encenderSirena();
+            vehiculo.conducir();
+            herramienta.usar();
             protocoloRCP.realizarRCP(paciente);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("# MEDICO: [¡He finalizado el protocolo RCP!] ");
-            //herramienta.guardar();
-            Console.ForegroundColor = ConsoleColor.White;
-
+            Console.WriteLine("# [¡He finalizado el protocolo RCP!] ");
+            Console.ResetColor();
+            herramienta.guardar();
+            Console.WriteLine("_______________________________________________ \n ");
         }
 
         public void atenderDesmayo()
         {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("     [MEDICO]       ");
+            Console.ResetColor();
             Console.WriteLine("¡Estoy atendiendo un desmayo!");
+            Console.WriteLine("_______________________________________________ \n ");
         }
 
         // Chain of Responsability

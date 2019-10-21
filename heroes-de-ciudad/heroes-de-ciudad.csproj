@@ -42,19 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ambulancia.cs" />
+    <Compile Include="Clases\Vehiculo\Ambulancia.cs" />
     <Compile Include="ApagadoEscalera.cs" />
     <Compile Include="ApagadoEspiral.cs" />
     <Compile Include="ApagadoSecuencial.cs" />
-    <Compile Include="Autobomba.cs" />
-    <Compile Include="Bombero.cs" />
-    <Compile Include="BomberoProxy.cs" />
-    <Compile Include="BomberoSecretario.cs" />
+    <Compile Include="Clases\Vehiculo\Autobomba.cs" />
+    <Compile Include="Clases\Heroes\Bombero.cs" />
+    <Compile Include="Clases\Heroes\BomberoProxy.cs" />
+    <Compile Include="Clases\BomberoSecretario.cs" />
     <Compile Include="Buscapolo.cs" />
     <Compile Include="Calle.cs" />
-    <Compile Include="Camioneta.cs" />
+    <Compile Include="Clases\Vehiculo\Camioneta.cs" />
     <Compile Include="Casa.cs" />
     <Compile Include="CentralElectrica.cs" />
+    <Compile Include="Clases\Vehiculo\EstadoDelMotor.cs" />
     <Compile Include="Comisaria.cs" />
     <Compile Include="ConstructorDesfavorable.cs" />
     <Compile Include="ConstructorEscenarioIncendio.cs" />
@@ -78,7 +79,8 @@
     <Compile Include="DenunciasPorWhatsapp.cs" />
     <Compile Include="Desfibrilador.cs" />
     <Compile Include="DirectorDeSectores.cs" />
-    <Compile Include="Electricista.cs" />
+    <Compile Include="Clases\Heroes\Electricista.cs" />
+    <Compile Include="Clases\Heroes\ElectricistaProxy.cs" />
     <Compile Include="Esquina.cs" />
     <Compile Include="FabricaBombero.cs" />
     <Compile Include="FabricaDecoradoArbolesGrandes.cs" />
@@ -116,19 +118,20 @@
     <Compile Include="IteradorDenunciasDeMostrador.cs" />
     <Compile Include="Interfaces\IVehiculo.cs" />
     <Compile Include="Manguera.cs" />
-    <Compile Include="Mecanico.cs" />
-    <Compile Include="Medico.cs" />
+    <Compile Include="Clases\Heroes\Mecanico.cs" />
+    <Compile Include="Clases\Heroes\Medico.cs" />
+    <Compile Include="Clases\Heroes\MedicoProxy.cs" />
     <Compile Include="MensajeWhatsapp.cs" />
     <Compile Include="OPAvisarYPedirRefuerzos.cs" />
     <Compile Include="Operador911.cs" />
     <Compile Include="OPPerseguirYArrestar.cs" />
     <Compile Include="OPVozDeAlto.cs" />
     <Compile Include="Passerby.cs" />
-    <Compile Include="Patrullero.cs" />
+    <Compile Include="Clases\Vehiculo\Patrullero.cs" />
     <Compile Include="Pistola.cs" />
     <Compile Include="Plaza.cs" />
-    <Compile Include="Policia.cs" />
-    <Compile Include="PoliciaProxy.cs" />
+    <Compile Include="Clases\Heroes\Policia.cs" />
+    <Compile Include="Clases\Heroes\PoliciaProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocoloRCP.cs" />
     <Compile Include="RCPTipoA.cs" />
@@ -137,9 +140,11 @@
     <Compile Include="Sector.cs" />
     <Compile Include="TestingHeroesDeCiudad.cs" />
     <Compile Include="Transeunte.cs" />
+    <Compile Include="Clases\Vehiculo\Vehiculo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

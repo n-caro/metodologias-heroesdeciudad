@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Ambulancia: IVehiculo
+    class Ambulancia: Vehiculo, IVehiculo
     {
         public void conducir()
         {
-            Console.WriteLine("Conduciendo ambulancia");
+            Console.WriteLine("< Conduciendo ambulancia >");
+            simularConduccion();
         }
 
         public void encenderSirena()

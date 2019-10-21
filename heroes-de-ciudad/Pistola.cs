@@ -10,12 +10,12 @@ namespace heroes_de_ciudad
     {
         public void guardar()
         {
-            Console.WriteLine("Guardando el buscapolo.");
+            Console.WriteLine("Enfundando la pistola.");
         }
 
         public void usar()
         {
-            Console.WriteLine("Utilizando el buscapolo.");
+            Console.WriteLine("Desenfundando la pistola.");
         }
     }
 }
