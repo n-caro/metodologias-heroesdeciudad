@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace heroes_de_ciudad
+namespace heroes_de_ciudad.Testing
 {
-    class TestingHeroesDeCiudad
+    class Test_HeroesDeCiudad
     {
         public static void tituloDecorado()
         {
@@ -32,7 +32,7 @@ namespace heroes_de_ciudad
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.Write(" [ELECTRICISTA] ");
             Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.Write(" [MECANICO (off)] \n");
+            Console.Write(" [MECANICO  \n");
             Console.ResetColor();
 
         }

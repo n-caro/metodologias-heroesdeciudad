@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using heroes_de_ciudad.Testing;
 
 namespace heroes_de_ciudad
 {
@@ -23,7 +24,7 @@ namespace heroes_de_ciudad
         }
         static void Main(string[] args)
         {
-            TestingHeroesDeCiudad.tituloDecorado();
+            Test_HeroesDeCiudad.tituloDecorado();
             Console.WriteLine("HEROES DE CIUDAD");
             Console.WriteLine("<testing>");
 

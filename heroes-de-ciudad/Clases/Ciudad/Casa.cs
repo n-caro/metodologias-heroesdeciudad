@@ -52,7 +52,7 @@ namespace heroes_de_ciudad
         public void chispa()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!!");
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!! lugar: " + this );
             Console.ForegroundColor = ConsoleColor.White;
             this.notificar();
         }
@@ -72,7 +72,7 @@ namespace heroes_de_ciudad
 
         public bool hayAlgoFueraDeLoNormal()
         {
-            double probabilidad = 0.4;
+            double probabilidad = 0.2;
             if (random.NextDouble() > probabilidad)
                 return true;
             return false;
