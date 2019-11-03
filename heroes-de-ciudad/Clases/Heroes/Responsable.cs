@@ -6,26 +6,20 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    abstract class Responsable
+    abstract class Responsable: IResponsable
     {
+        IResponsable sucesor = null;
         protected IHerramienta herramienta;
         protected IVehiculo vehiculo;
 
         // setters-getter
         public IHerramienta getHerramienta()
         {
-            /* getHerramienta le quita la herramienta al Heroe. Se utiliza para devolverlas a sus cuarteles.
-            IHerramienta aux = herramienta;
-            herramienta = null;
-            return aux;
-            */
             return herramienta;
         }
         public void setHerramienta(IHerramienta herramienta) { this.herramienta = herramienta; }
         public IVehiculo getVehiculo() { return vehiculo; }
         public void setVehiculo(IVehiculo vehiculo) { this.vehiculo = vehiculo; }
-        // Chain of Responsability
-        IResponsable sucesor;
         virtual public void apagarIncendio(ILugar lugar)
         {
             if (sucesor != null)
@@ -50,11 +44,10 @@ namespace heroes_de_ciudad
                 sucesor.revisar(iluminable);
         }
 
-        // setter-getter generales de herramientas y vehículos
-        // Constructor
-        public Responsable(IResponsable r)
+        public void setSiguiente(IResponsable sucesor)
         {
-            sucesor = r;
+            this.sucesor = sucesor;
         }
+        // setter-getter generales de herramientas y vehículos
     }
 }

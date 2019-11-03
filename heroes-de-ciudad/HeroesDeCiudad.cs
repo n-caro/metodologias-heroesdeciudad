@@ -25,28 +25,25 @@ namespace heroes_de_ciudad
         static void Main(string[] args)
         {
             Test_HeroesDeCiudad.tituloDecorado();
-            Console.WriteLine("HEROES DE CIUDAD");
-            Console.WriteLine("<testing>");
-
             // heroes
+            BomberoProxy bombero = new BomberoProxy();
+            MedicoProxy medico = new MedicoProxy();
+            PoliciaProxy policia = new PoliciaProxy();
+            ElectricistaProxy electricista = new ElectricistaProxy();
             // creo Cadena
-            IResponsable cadena = new BomberoProxy(null); // proxy
-            cadena = new MedicoProxy(cadena);
-            cadena = new PoliciaProxy(cadena);
-            cadena = new ElectricistaProxy(cadena);
+            medico.setSiguiente(bombero);
+            policia.setSiguiente(medico);
+            electricista.setSiguiente(policia);
 
-            Operador911 op = new Operador911(cadena);
-
-
-
+            Operador911 op = new Operador911(electricista);
 
             // armar cadena?
 
             // 10 ILugar
             DirectorDeSectores directorFavorable = new DirectorDeSectores(new ConstructorDesfavorable());
 
-            Calle callePrincipal = new Calle(10, 10, 50); // 50 de agua
-            Calle calleSecundaria = new Calle(10, 10, 20); // 20 de agua
+            Calle callePrincipal = new Calle(11, 10, 50); // 50 de agua
+            Calle calleSecundaria = new Calle(15, 10, 30); // 20 de agua
 
             Casa A = new Casa(1, 4, 10, callePrincipal, directorFavorable);
             Casa B = new Casa(1, 16, 10, callePrincipal, directorFavorable);
@@ -54,8 +51,8 @@ namespace heroes_de_ciudad
             Casa D = new Casa(1, 9, 10, calleSecundaria, directorFavorable);
             Casa E = new Casa(1, 16, 10, calleSecundaria, directorFavorable);
             Casa F = new Casa(1, 40, 10, calleSecundaria, directorFavorable);
-            Plaza G = new Plaza("Plaza Principal", 25, 10, 10, callePrincipal, directorFavorable);
-            Casa H = new Casa(1, 4, 10, calleSecundaria, directorFavorable);
+            Plaza G = new Plaza("Plaza Alemana", 100, 10, 10, callePrincipal, directorFavorable);
+            Casa H = new Casa(1, 72, 10, calleSecundaria, directorFavorable);
             Casa I = new Casa(1, 30, 10, callePrincipal, directorFavorable);
             Casa J = new Casa(1, 25, 10, calleSecundaria, directorFavorable);
 
@@ -101,44 +98,12 @@ namespace heroes_de_ciudad
 
             // PROBADNO FUNCIONAMIENTO
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("ATENDIENDO DENUNCIAS POR WHATSAPP!");
+            Console.WriteLine("\n \n ---------------------------- \n  ATENDIENDO DENUNCIAS POR WHATSAPP! \n ---------------------------- \n ");
             Console.ForegroundColor = ConsoleColor.White;
 
             op.atenderDenuncias(denunciasPorWhatsapp);
             
-            /*
-            Console.WriteLine("<13 - ABSTRACT FACTORY");
-            Console.WriteLine("BOMBERO:");
-            ICuartel cuartelDeBomberos = crearHeroe(new FabricaBombero());
-            Bombero b = (Bombero)cuartelDeBomberos.getPersonal();
-            b.apagarIncendio(new Casa(10, 10, 10, new Calle(10, 10, 50)));
-
-            Console.WriteLine("MEDICO:");
-            ICuartel hospital = crearHeroe(new FabricaMedico());
-            Medico m = (Medico)hospital.getPersonal();
-            m.atenderInfarto(new Transeunte(0.9, 0.9, 0.9));
-
-            Console.WriteLine("ELECTRICISTA:");
-            ICuartel centralElectrica = crearHeroe(new FabricaElectricista());
-            Electricista e = (Electricista)centralElectrica.getPersonal();
-            e.revisar(new Esquina(10));
-
-            Console.WriteLine("POLICIA:");
-            ICuartel comisaria = crearHeroe(new FabricaPolicia());
-            Policia p = (Policia)comisaria.getPersonal();
-            p.patrullarCalles(new Casa(10, 10, 10, new Calle(10, 10, 50)));
-
-            Policia p2 = (Policia)crearHeroe(new FabricaPolicia()).getPersonal();
-            p2.patrullarCalles(new Casa(10, 10, 10, new Calle(10, 10, 50)));
-
-            CuartelDeBomberos cb = CuartelDeBomberos.getInstance();
-            IResponsable b1 = cb.getPersonal();
-            IResponsable b2 = cb.getPersonal();
-            IResponsable b3 = cb.getPersonal();
-            IResponsable b4 = cb.getPersonal();
-            */
-            // end
-            Console.WriteLine("\n ------------------------------- \n No rompiste nada! Presiona una tecla para cerrar");
+            Console.WriteLine("\n ------------------------------- \n Presiona una tecla para cerrar");
             Console.ReadKey();
         }
     }

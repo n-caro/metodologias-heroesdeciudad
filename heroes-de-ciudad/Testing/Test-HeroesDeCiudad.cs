@@ -8,20 +8,16 @@ namespace heroes_de_ciudad.Testing
 {
     class Test_HeroesDeCiudad
     {
+
         public static void tituloDecorado()
         {
-            Console.WriteLine(
-                "   #    # ###### #####   ####  ######  ####     #####  ######     ####  # #    # #####    ##   #####  \n" +
-                "   #    # #      #    # #    # #      #         #    # #         #    # # #    # #    #  #  #  #    # \n" +
-                "   ###### #####  #    # #    # #####   ####     #    # #####     #      # #    # #    # #    # #    # \n" +
-                "   #    # #      #####  #    # #           #    #    # #         #      # #    # #    # ###### #    # \n" +
-                "   #    # #      #   #  #    # #      #    #    #    # #         #    # # #    # #    # #    # #    # \n" +
-                "   #    # ###### #    #  ####  ######  ####     #####  ######     ####  #  ####  #####  #    # #####  \n"
-                );
+            Console.WriteLine("     --- H E R O E S  D E  C I U D A D ---       ");
             infoHeroes();
+            Console.WriteLine("\n");
         }
 
-        public static void infoHeroes()
+        // Información de heroes
+        private static void infoHeroes()
         {
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.Write(" [BOMBERO] ");
@@ -34,7 +30,9 @@ namespace heroes_de_ciudad.Testing
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.Write(" [MECANICO  \n");
             Console.ResetColor();
-
         }
+
+ 
+
     }
 }

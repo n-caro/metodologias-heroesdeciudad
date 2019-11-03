@@ -25,16 +25,5 @@ namespace heroes_de_ciudad
             fabrica.crearCuartel().agregarVehiculo(heroeReal.getVehiculo());
             fabrica.crearCuartel().agregarHerramienta(heroeReal.getHerramienta());
         }
-
-        // Chain of Responsability
-        public ElectricistaProxy(IResponsable r) : base(r)
-        {
-
-        }
-        public ElectricistaProxy() : base(null)
-        {
-
-        }
-        // end Chain of responsability
     }
 }

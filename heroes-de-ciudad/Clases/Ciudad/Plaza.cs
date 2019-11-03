@@ -58,8 +58,8 @@ namespace heroes_de_ciudad
         public void chispa()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!!");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios en " + this + "!!!!!");
+            Console.ResetColor();
             this.notificar();
         }
 
@@ -90,9 +90,13 @@ namespace heroes_de_ciudad
 
         public void revisarYCambiarLamparasQuemadas()
         {
-            Console.WriteLine("Cambiando las lámparas quemadas de la plaza.");
+            Console.WriteLine("Cambiando las lámparas quemadas de " + this);
         }
 
+        public override string ToString()
+        {
+            return "Calle " + nombre;
+        }
         // Constructores
         public Plaza(string nombre, int superficie, int arboles, int farolas, Calle calle, DirectorDeSectores directorDeSectores)
         {

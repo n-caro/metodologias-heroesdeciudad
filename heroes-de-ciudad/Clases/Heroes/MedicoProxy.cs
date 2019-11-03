@@ -52,14 +52,5 @@ namespace heroes_de_ciudad
         }
 
         // Chain of Responsability
-        public MedicoProxy(IResponsable r) : base(r)
-        {
-
-        }
-        public MedicoProxy() : base(null)
-        {
-
-        }
-        // end Chain of responsability
     }
 }

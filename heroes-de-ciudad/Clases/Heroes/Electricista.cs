@@ -31,16 +31,5 @@ namespace heroes_de_ciudad
             lugar.revisarYCambiarLamparasQuemadas();
         }
 
-        // Chain of Responsability
-        public Electricista(IResponsable r) : base(r)
-        {
-
-        }
-        public Electricista() : base(null)
-        {
-
-        }
-        // end Chain of responsability
-
     }
 }

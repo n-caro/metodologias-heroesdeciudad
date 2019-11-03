@@ -15,6 +15,8 @@ namespace heroes_de_ciudad
         void setHerramienta(IHerramienta h);
         void setVehiculo(IVehiculo v);
 
+        void setSiguiente(IResponsable sucesor);
+
         // Chain of responsability
         void apagarIncendio(ILugar lugar);
         void atenderInfarto(IInfartable paciente);

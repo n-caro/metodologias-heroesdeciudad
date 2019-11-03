@@ -56,15 +56,5 @@ namespace heroes_de_ciudad
             fabrica.crearCuartel().agregarHerramienta(heroeReal.getHerramienta());
         }
 
-        // Chain of Responsability
-        public PoliciaProxy(IResponsable r) : base(r)
-        {
-
-        }
-        public PoliciaProxy() : base(null)
-        {
-
-        }
-        // end Chain of responsability
     }
 }

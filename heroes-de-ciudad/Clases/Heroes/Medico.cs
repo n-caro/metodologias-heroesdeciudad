@@ -44,16 +44,5 @@ namespace heroes_de_ciudad
             Console.WriteLine("_______________________________________________ \n ");
         }
 
-        // Chain of Responsability
-        public Medico(IResponsable r) : base(r)
-        {
-
-        }
-        public Medico() : base(null)
-        {
-
-        }
-        // end Chain of responsability
-
     }
 }

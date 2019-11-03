@@ -123,7 +123,7 @@
     <Compile Include="Clases\Heroes\MedicoProxy.cs" />
     <Compile Include="Clases\Denuncias\MensajeWhatsapp.cs" />
     <Compile Include="Clases\Heroes\TareasHeroe\OPAvisarYPedirRefuerzos.cs" />
-    <Compile Include="Clases\Heroes\TareasHeroe\Operador911.cs" />
+    <Compile Include="Clases\Heroes\Operador911.cs" />
     <Compile Include="Clases\Heroes\TareasHeroe\OPPerseguirYArrestar.cs" />
     <Compile Include="Clases\Heroes\TareasHeroe\OPVozDeAlto.cs" />
     <Compile Include="Clases\Ciudad\Passerby.cs" />

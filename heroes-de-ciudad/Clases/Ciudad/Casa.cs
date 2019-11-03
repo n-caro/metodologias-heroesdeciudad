@@ -52,8 +52,8 @@ namespace heroes_de_ciudad
         public void chispa()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios!!!!! lugar: " + this );
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios de " + this + "!!!!");
+            Console.ResetColor();
             this.notificar();
         }
 

@@ -46,15 +46,5 @@ namespace heroes_de_ciudad
             apagarIncendio(lugar);
         }
 
-        // Chain of Responsability
-        public Bombero(IResponsable r): base(r)
-        {
-
-        }
-        public Bombero() : base(null)
-        {
-
-        }
-        // end Chain of responsability
     }
 }

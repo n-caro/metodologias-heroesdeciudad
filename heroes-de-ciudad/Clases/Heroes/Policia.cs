@@ -49,15 +49,5 @@ namespace heroes_de_ciudad
             Console.WriteLine("¡Estoy deteniendo un delincuente!");
         }
 
-        // Chain of Responsability
-        public Policia(IResponsable r) : base(r)
-        {
-
-        }
-        public Policia() : base(null)
-        {
-
-        }
-        // end Chain of responsability
     }
 }
