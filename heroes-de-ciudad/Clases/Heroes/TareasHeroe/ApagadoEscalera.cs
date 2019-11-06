@@ -8,8 +8,12 @@ namespace heroes_de_ciudad
 {
     class ApagadoEscalera : IEstrategiaDeApagado
     {
+        public void apagarIncendio(ILugar lugar)
+        {
+            this.apagarIncendio(lugar, lugar.getCalle());
+        }
 
-        public void RecorrerLugar(ILugar lugar, Calle calle)
+        public void apagarIncendio(ILugar lugar, Calle calle)
         {
             ISector[,] matrizLugar = lugar.getSectores();
             int caudalAgua = calle.CaudalAgua;
@@ -37,6 +41,10 @@ namespace heroes_de_ciudad
                     }
                 }
             }
+            // Creo mensajes de finalización en consola
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
+            Console.ResetColor();
         }
 
         private void ApagarSector(int fila, int columna, ISector[,] matrizLugar, int caudalAgua)

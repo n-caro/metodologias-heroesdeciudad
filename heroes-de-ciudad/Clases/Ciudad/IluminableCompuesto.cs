@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class IluminableCompuesto: IIluminable
+    /// <summary>
+    /// IluminableCompuesto 
+    /// utiliza patrón Composite para poder crear especie de árbol general como hijos
+    /// dicho compuesto tiene un nombre string en nombreCompuesto
+    /// </summary>
+    class IluminableCompuesto : IIluminable
     {
         private string nombreCompuesto;
         private List<IIluminable> hijos = new List<IIluminable>();

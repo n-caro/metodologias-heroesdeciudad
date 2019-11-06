@@ -24,6 +24,7 @@ namespace heroes_de_ciudad
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("[POLICIA] ¡Estoy patrullando! [Lugar: {0} ]", lugarAPatrullar);
+            Console.ResetColor();
             vehiculo.encenderSirena();
             vehiculo.conducir();
             if (lugarAPatrullar.hayAlgoFueraDeLoNormal())

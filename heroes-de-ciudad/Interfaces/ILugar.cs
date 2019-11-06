@@ -11,5 +11,7 @@ namespace heroes_de_ciudad
         ISector[,] getSectores();
         void chispa();
 
+        Calle getCalle();
+
     }
 }

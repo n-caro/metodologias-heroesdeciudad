@@ -8,6 +8,7 @@ namespace heroes_de_ciudad
 {
     class Medico: Responsable, IResponsable
     {
+        // 07 - Template Method
         ProtocoloRCP protocoloRCP = new RCPTipoA();
        
         public void setProtocoloRCP(ProtocoloRCP protocolo)
@@ -27,6 +28,7 @@ namespace heroes_de_ciudad
             vehiculo.encenderSirena();
             vehiculo.conducir();
             herramienta.usar();
+            // 07 - Template Method
             protocoloRCP.realizarRCP(paciente);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("# [¡He finalizado el protocolo RCP!] ");

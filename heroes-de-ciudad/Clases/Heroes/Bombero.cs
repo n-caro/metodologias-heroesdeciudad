@@ -20,6 +20,7 @@ namespace heroes_de_ciudad
         // Métodos
         override public void apagarIncendio(ILugar lugar)
         {
+            // Creo mensajes de inicialización de apagado en consola
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("     [BOMBERO]       ");
             Console.ResetColor();
@@ -27,10 +28,9 @@ namespace heroes_de_ciudad
             vehiculo.conducir();
             herramienta.usar();
             Console.WriteLine("# [Apagando Incendio] [Lugar: {0}] [Estrategia: {1}]", lugar, estrategiaApagado);
-            estrategiaApagado.RecorrerLugar(lugar, lugar.getCalle());
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
-            Console.ResetColor();
+            // dejo a cargo MI Strategy de recorrer la matriz
+            estrategiaApagado.apagarIncendio(lugar);
+           // herramientas
             herramienta.guardar();
             Console.WriteLine("_______________________________________________ \n ");
         }
@@ -40,6 +40,7 @@ namespace heroes_de_ciudad
             Console.WriteLine("¡Estoy bajando al gatito del árbol!");
         }
 
+        // 03 - Observer
         public void actualizar(ILugar lugar)
         {
             Console.WriteLine("# BOMBERO: He recibido un aviso de Alarma de Incendio! Socorriendo Lugar a continuación ");

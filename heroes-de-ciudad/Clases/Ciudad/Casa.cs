@@ -12,6 +12,7 @@ namespace heroes_de_ciudad
         private int superficie;
         private int habitantes;
         private Calle calle;
+        // 03 - Strategy
         private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
         Random random = new Random();
         // 10 - Builder
@@ -48,6 +49,7 @@ namespace heroes_de_ciudad
             int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
             return directorDeSectores.construirMatriz(dimension, dimension);
         }
+        // 03 - Observer
 
         public void chispa()
         {
@@ -69,6 +71,7 @@ namespace heroes_de_ciudad
                 o.actualizar(this);
             }
         }
+        // -----------end: 03 - Observer ------------------------ //
 
         public bool hayAlgoFueraDeLoNormal()
         {

@@ -8,7 +8,9 @@ namespace heroes_de_ciudad
 {
     interface IEstrategiaDeApagado
     {
-        void RecorrerLugar(ILugar lugar, Calle calle);
+        void apagarIncendio(ILugar lugar, Calle calle);
+        // actualización, ya que ahora cada ILugar tiene calle.
+        void apagarIncendio(ILugar lugar);
     }
 
 }

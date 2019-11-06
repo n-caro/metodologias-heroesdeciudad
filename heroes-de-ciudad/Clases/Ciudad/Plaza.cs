@@ -14,7 +14,7 @@ namespace heroes_de_ciudad
         private int farolas;
         private Calle calle;
         private Random random = new Random();
-        // Alarma con Patrón Observer
+        // 03 - Observer
         private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
         // 10 - Builder
         private DirectorDeSectores directorDeSectores;
@@ -54,7 +54,7 @@ namespace heroes_de_ciudad
             return directorDeSectores.construirMatriz(dimension, dimension);
         }
 
-        // Provocar incendios - Alarma con Patron Observer
+        // 03 - Observer
         public void chispa()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -78,7 +78,7 @@ namespace heroes_de_ciudad
                 }
             }
         }
-
+        // -----------end: 03 - Observer ------------------------ //
         public bool hayAlgoFueraDeLoNormal()
         {
             double probabilidad = 0.3;

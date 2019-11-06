@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Vehiculo
+   abstract class Vehiculo
     {
         EstadoDelMotor estado;
 

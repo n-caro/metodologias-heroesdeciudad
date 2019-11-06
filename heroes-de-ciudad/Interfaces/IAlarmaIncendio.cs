@@ -10,8 +10,5 @@ namespace heroes_de_ciudad
     {
         void agregarObservador(IAlarmaIncendioObserver o);
         void notificar();
-
-        //agregado para que un bombero pueda obtener calle de cualquier ILugar
-        Calle getCalle();
     }
 }
