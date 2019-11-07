@@ -8,11 +8,15 @@ namespace heroes_de_ciudad
 {
     class Esquina: IPatrullable, IIluminable
     {
+        private string nombre;
         private int semaforos;
         Random random = new Random();
         // getters - setters
-        public Esquina(int semaforo)
+
+        // Constructor
+        public Esquina(string nombre, int semaforo)
         {
+            this.nombre = nombre;
             this.semaforos = semaforo;
         }
         public int Semaforos
@@ -30,9 +34,14 @@ namespace heroes_de_ciudad
             return false;
         }
 
+        public override string ToString()
+        {
+            return "Esquina " + nombre;
+        }
+
         public void revisarYCambiarLamparasQuemadas()
         {
-            Console.WriteLine("Cambiando las lámparas quemadas de la esquina.");
+            Console.WriteLine("Cambiando las lámparas quemadas de ", this);
         }
 
     }

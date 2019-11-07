@@ -11,9 +11,12 @@ namespace heroes_de_ciudad
         private int longitud;
         private int farolas;
         private int caudalAgua;
+        private string nombre;
 
-        public Calle(int longitud, int farolas, int caudalAgua)
+        // Constructor
+        public Calle(string nombre, int longitud, int farolas, int caudalAgua)
         {
+            this.nombre = nombre;
             this.longitud = longitud;
             this.farolas = farolas;
             this.caudalAgua = caudalAgua;
@@ -34,10 +37,15 @@ namespace heroes_de_ciudad
             get { return caudalAgua; }
             set { caudalAgua = value; }
         }
+
+        public override string ToString()
+        {
+            return "Calle " + nombre;
+        }
         // Métodos
         public void revisarYCambiarLamparasQuemadas()
         {
-            Console.WriteLine("Cambiando las lámparas quemadas de la calle.");
+            Console.WriteLine("Cambiando las lámparas quemadas de " + this);
         }
     }
 }
