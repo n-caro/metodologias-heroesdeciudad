@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class ApagadoEscalera : IEstrategiaDeApagado
+    class ApagadoEscalera : ApagadoSectores, IEstrategiaDeApagado
     {
-        public void apagarIncendio(ILugar lugar)
-        {
-            this.apagarIncendio(lugar, lugar.getCalle());
-        }
 
-        public void apagarIncendio(ILugar lugar, Calle calle)
+        override public void apagarIncendio(ILugar lugar, Calle calle)
         {
             ISector[,] matrizLugar = lugar.getSectores();
             int caudalAgua = calle.CaudalAgua;
@@ -46,31 +42,7 @@ namespace heroes_de_ciudad
             Console.WriteLine("      ¡¡¡¡¡¡¡ El fuego de {0} fue extinguido en su totalidad!!!!!! \n", lugar);
             Console.ResetColor();
         }
-
-        private void ApagarSector(int fila, int columna, ISector[,] matrizLugar, int caudalAgua)
-        {
-            double porcentajeIncendio = matrizLugar[fila, columna].getPorcentajeIncendio();
-            ISector sectorProblematico = matrizLugar[fila, columna];
-            StringBuilder estado_Incendio = new StringBuilder();
-            if (porcentajeIncendio > caudalAgua)
-            {
-                sectorProblematico.mojar(caudalAgua);
-                estado_Incendio.Append(" -> ");
-                estado_Incendio.Append(sectorProblematico.getPorcentajeIncendio());
-                while (!sectorProblematico.estaApagado())
-                {
-                    sectorProblematico.mojar(caudalAgua);
-                    estado_Incendio.Append(" -> ");
-                    estado_Incendio.Append(sectorProblematico.getPorcentajeIncendio());
-                }
-            }
-            else
-            {
-                sectorProblematico.mojar(caudalAgua);
-                estado_Incendio.Append(" -> 0");
-            }
-            Console.WriteLine("     ({0},{1}) -> {2}{3}", fila, columna, porcentajeIncendio, estado_Incendio);
-        }
+        
 
     }
 
