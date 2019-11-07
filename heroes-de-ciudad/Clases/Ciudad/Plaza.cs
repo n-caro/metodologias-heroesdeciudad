@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Plaza : ILugar, IPatrullable, IIluminable
+    class Plaza : Lugar, ILugar, IPatrullable, IIluminable
     {
         private string nombre;
-        private int superficie;
         private int arboles;
         private int farolas;
-        private Calle calle;
-        private Random random = new Random();
-        // 03 - Observer
-        private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
-        // 10 - Builder
-        private DirectorDeSectores directorDeSectores;
 
 
         // getters-setters
@@ -25,11 +18,6 @@ namespace heroes_de_ciudad
         {
             get { return nombre; }
             set { nombre = value; }
-        }
-        public int Superficie
-        {
-            get { return superficie; }
-            set { superficie = value; }
         }
         public int Arboles
         {
@@ -41,24 +29,15 @@ namespace heroes_de_ciudad
             get { return farolas; }
             set { farolas = value; }
         }
-        public Calle getCalle()
-        {
-            return calle;
-        }
 
         // Métodos 
-        public ISector[,] getSectores()
-        {
-            double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
-            int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            return directorDeSectores.construirMatriz(dimension, dimension);
-        }
 
         // 03 - Observer
+
         public void chispa()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios en " + this + "!!!!!");
+            Console.WriteLine("¡¡¡¡Se ha activado la alarma de incendios de " + this + "!!!!");
             Console.ResetColor();
             this.notificar();
         }
@@ -70,23 +49,12 @@ namespace heroes_de_ciudad
 
         public void notificar()
         {
-            if(observadoresAlarma.Count > 0)
+            foreach (IAlarmaIncendioObserver o in observadoresAlarma)
             {
-                foreach (IAlarmaIncendioObserver o in observadoresAlarma)
-                {
-                    o.actualizar(this);
-                }
+                o.actualizar(this);
             }
         }
         // -----------end: 03 - Observer ------------------------ //
-        public bool hayAlgoFueraDeLoNormal()
-        {
-            double probabilidad = 0.3;
-            Random random = new Random();
-            if (random.NextDouble() > probabilidad)
-                return true;
-            return false;
-        }
 
         public void revisarYCambiarLamparasQuemadas()
         {

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Ciudad\Lugar.cs" />
     <Compile Include="Clases\Heroes\TareasHeroe\ApagadoSectores.cs" />
     <Compile Include="Clases\Heroes\Vehiculo\Ambulancia.cs" />
     <Compile Include="Clases\Heroes\TareasHeroe\ApagadoEscalera.cs" />

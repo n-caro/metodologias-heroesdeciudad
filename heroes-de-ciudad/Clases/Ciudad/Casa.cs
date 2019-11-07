@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace heroes_de_ciudad
 {
-    class Casa : ILugar, IPatrullable
+    class Casa : Lugar, ILugar, IPatrullable
     {
         private int puerta;
-        private int superficie;
         private int habitantes;
-        private Calle calle;
-        // 03 - Strategy
-        private List<IAlarmaIncendioObserver> observadoresAlarma = new List<IAlarmaIncendioObserver>();
-        Random random = new Random();
-        // 10 - Builder
-        private DirectorDeSectores directorDeSectores;
 
         // getters-setters
         public int Puerta
@@ -24,30 +17,17 @@ namespace heroes_de_ciudad
             get { return puerta; }
             set { puerta = value; }
         }
-        public int Superficie
-        {
-            get { return superficie; }
-            set { superficie = value; }
-        }
         public int Habitantes
         {
             get { return habitantes; }
             set { habitantes = value; }
         }
 
-        public Calle getCalle()
-        {
-            return calle;
-        }
-
         // Métodos
 
-        // Matriz de ISectores
-        public ISector[,] getSectores()
+        public override string ToString()
         {
-            double raizRedondeadaSuperficie = Math.Round(Math.Sqrt(superficie));
-            int dimension = Convert.ToInt32(raizRedondeadaSuperficie);
-            return directorDeSectores.construirMatriz(dimension, dimension);
+            return "Casa (puerta n° " + puerta + ")";
         }
         // 03 - Observer
 
@@ -66,25 +46,13 @@ namespace heroes_de_ciudad
 
         public void notificar()
         {
-            foreach(IAlarmaIncendioObserver o in observadoresAlarma)
+            foreach (IAlarmaIncendioObserver o in observadoresAlarma)
             {
                 o.actualizar(this);
             }
         }
         // -----------end: 03 - Observer ------------------------ //
 
-        public bool hayAlgoFueraDeLoNormal()
-        {
-            double probabilidad = 0.2;
-            if (random.NextDouble() > probabilidad)
-                return true;
-            return false;
-        }
-
-        public override string ToString()
-        {
-            return "Casa (puerta n° " + puerta + ")";
-        }
         // Constructores
         public Casa(int puerta, int superficie, int habitantes, Calle calle, DirectorDeSectores directorDeSectores)
         {
